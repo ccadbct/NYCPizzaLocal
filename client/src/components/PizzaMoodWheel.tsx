@@ -147,6 +147,26 @@ export default function PizzaMoodWheel() {
     spinToSegment(randomSegmentId);
   };
 
+  // Food images mapping for each pizza type
+  const getFoodImageUrl = (pizzaName: string): string => {
+    const imageMap: { [key: string]: string } = {
+      'Classic Cheese Pizza': 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=400&fit=crop&crop=center',
+      'Pepperoni Pizza': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=400&fit=crop&crop=center',
+      'Margherita Pizza': 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&h=400&fit=crop&crop=center',
+      'Sicilian Pizza': 'https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=400&h=400&fit=crop&crop=center',
+      'White Pizza': 'https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=400&h=400&fit=crop&crop=center',
+      'BBQ Chicken Pizza': 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&h=400&fit=crop&crop=center',
+      'Veggie Supreme': 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=400&h=400&fit=crop&crop=center',
+      'Meat Lovers': 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=400&h=400&fit=crop&crop=center',
+      'Hawaiian Pizza': 'https://images.unsplash.com/photo-1565299585323-38174c13c7f4?w=400&h=400&fit=crop&crop=center',
+      'Buffalo Chicken': 'https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=400&h=400&fit=crop&crop=center',
+      'Calzone': 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=400&fit=crop&crop=center',
+      'Stromboli': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=400&fit=crop&crop=center'
+    };
+    
+    return imageMap[pizzaName] || imageMap['Classic Cheese Pizza'];
+  };
+
   // Enhanced Canvas-based image generation for social sharing
   const generateShareImage = async (format: 'facebook' | 'instagram'): Promise<Blob | null> => {
     if (!result) return null;
@@ -287,8 +307,50 @@ export default function PizzaMoodWheel() {
     }
     ctx.fillText(line, width / 2, y);
 
-    // Free slice offer section
-    const offerY = height - (format === 'facebook' ? 140 : 180);
+    // Load and draw food image
+    try {
+      const foodImageUrl = getFoodImageUrl(result.pizza);
+      const foodImage = new Image();
+      foodImage.crossOrigin = 'anonymous';
+      
+      await new Promise((resolve, reject) => {
+        foodImage.onload = () => {
+          // Calculate image position in the empty space
+          const imageSize = format === 'facebook' ? 200 : 280;
+          const imageX = (width - imageSize) / 2;
+          const imageY = y + 40; // Below description text
+          
+          // Create circular clipping path
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(imageX + imageSize/2, imageY + imageSize/2, imageSize/2, 0, Math.PI * 2);
+          ctx.clip();
+          
+          // Draw the food image
+          ctx.drawImage(foodImage, imageX, imageY, imageSize, imageSize);
+          ctx.restore();
+          
+          // Add circular border around image
+          ctx.strokeStyle = '#2d5a3d';
+          ctx.lineWidth = 4;
+          ctx.beginPath();
+          ctx.arc(imageX + imageSize/2, imageY + imageSize/2, imageSize/2, 0, Math.PI * 2);
+          ctx.stroke();
+          
+          resolve(true);
+        };
+        foodImage.onerror = () => {
+          console.log('Failed to load food image, continuing without it');
+          resolve(false);
+        };
+        foodImage.src = foodImageUrl;
+      });
+    } catch (error) {
+      console.log('Error loading food image:', error);
+    }
+
+    // Free slice offer section (adjusted for food image)
+    const offerY = height - (format === 'facebook' ? 120 : 140);
     
     // Offer background
     const offerBox = {
