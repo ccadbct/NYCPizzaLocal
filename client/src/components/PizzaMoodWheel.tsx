@@ -641,10 +641,11 @@ export default function PizzaMoodWheel() {
                   <div className="space-y-3">
                     <Button
                       onClick={() => window.open("tel:6463988386")}
-                      className="w-full bg-pizza-red text-white hover:bg-red-700 py-3 text-lg font-semibold"
+                      className="w-full bg-pizza-red text-white hover:bg-red-700 py-3 text-base sm:text-lg font-semibold"
                     >
-                      <Phone className="w-5 h-5 mr-2" />
-                      Order Now - (646) 398-8386
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                      <span className="hidden sm:inline">Order Now - (646) 398-8386</span>
+                      <span className="sm:hidden">Call (646) 398-8386</span>
                     </Button>
                     
                     <Button
