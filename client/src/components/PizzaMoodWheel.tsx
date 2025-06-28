@@ -417,30 +417,7 @@ ${result.description}
           </div>
         </div>
 
-        {/* Share Section */}
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
-            Share your pizza personality with friends!
-          </p>
-          <div className="flex justify-center space-x-4">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => {
-                if (navigator.share && result) {
-                  navigator.share({
-                    title: "My Pizza Personality",
-                    text: `I'm ${result.mood.toLowerCase()} and my perfect pizza is ${result.pizza}! Find yours at Andrea's Pizza.`,
-                    url: window.location.href
-                  });
-                }
-              }}
-              className="border-pizza-green text-pizza-green hover:bg-pizza-green hover:text-white"
-            >
-              Share Result
-            </Button>
-          </div>
-        </div>
+
       </div>
     </section>
   );
