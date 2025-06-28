@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, RotateCw, Sparkles } from "lucide-react";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 interface MoodSegment {
   id: number;
@@ -16,6 +17,7 @@ interface SpinResult {
   pizza: string;
   description: string;
   personality: string;
+  shareCode: string;
 }
 
 export default function PizzaMoodWheel() {
@@ -95,6 +97,16 @@ export default function PizzaMoodWheel() {
     "Go Big": "You don't do anything halfway"
   };
 
+  // Generate unique share code for verification
+  const generateShareCode = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let code = 'AP-'; // Andrea's Pizza prefix
+    for (let i = 0; i < 6; i++) {
+      code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return code;
+  };
+
   const spinToSegment = (targetSegmentId: number) => {
     if (isSpinning) return;
 
@@ -127,7 +139,8 @@ export default function PizzaMoodWheel() {
         mood: targetSegment.mood,
         pizza: targetSegment.pizza,
         description: targetSegment.description,
-        personality: personalityDescriptions[targetSegment.mood as keyof typeof personalityDescriptions]
+        personality: personalityDescriptions[targetSegment.mood as keyof typeof personalityDescriptions],
+        shareCode: generateShareCode()
       });
       setShowCelebration(true);
       
@@ -142,6 +155,50 @@ export default function PizzaMoodWheel() {
     // Random segment selection for "Surprise Me!"
     const randomSegmentId = Math.floor(Math.random() * segments.length) + 1;
     spinToSegment(randomSegmentId);
+  };
+
+  // Social sharing functions
+  const shareToFacebook = () => {
+    if (!result) return;
+
+    const postText = `🍕 Just discovered my perfect pizza match at Andrea's Pizza! 
+
+${result.mood} → ${result.pizza}
+"${result.personality}"
+
+${result.description}
+
+📍 50 2nd Ave, East Village NYC
+💯 Show this post + code ${result.shareCode} for a FREE SLICE!
+
+#AndreasPizza #NYCPizza #EastVillage #FreePizza #PizzaMoodWheel #AuthenticItalian`;
+
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(postText)}`;
+    window.open(facebookUrl, '_blank', 'width=600,height=400');
+  };
+
+  const shareToInstagram = () => {
+    if (!result) return;
+
+    const postText = `🍕 Just discovered my perfect pizza match @andreaspizza! 
+
+${result.mood} → ${result.pizza}
+"${result.personality}"
+
+${result.description}
+
+📍 50 2nd Ave, East Village NYC
+💯 Show this post + code ${result.shareCode} for a FREE SLICE!
+
+#AndreasPizza #NYCPizza #EastVillage #FreePizza #PizzaMoodWheel #AuthenticItalian #PizzaLover #NYC`;
+
+    // Copy to clipboard for Instagram
+    navigator.clipboard.writeText(postText).then(() => {
+      alert('📱 Instagram caption copied to clipboard!\n\n1. Take a screenshot of your result\n2. Open Instagram\n3. Create a new post with your screenshot\n4. Paste this caption\n5. Show your post + code at the restaurant for FREE SLICE!');
+    }).catch(() => {
+      // Fallback if clipboard API fails
+      alert(`📱 Copy this text for Instagram:\n\n${postText}\n\n1. Take a screenshot of your result\n2. Create Instagram post with screenshot\n3. Use this caption\n4. Show post + code ${result.shareCode} for FREE SLICE!`);
+    });
   };
 
   const resetWheel = () => {
@@ -277,9 +334,39 @@ export default function PizzaMoodWheel() {
                     <div className="text-2xl font-bold text-pizza-red mb-4">
                       {result.pizza}
                     </div>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed mb-4">
                       {result.description}
                     </p>
+
+                    {/* Share Code Display */}
+                    <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4 mb-6">
+                      <div className="text-center">
+                        <div className="text-sm font-semibold text-yellow-800 mb-1">FREE SLICE CODE</div>
+                        <div className="text-2xl font-bold text-yellow-900 tracking-wider">{result.shareCode}</div>
+                        <div className="text-xs text-yellow-700 mt-1">Show this code + social post at the restaurant</div>
+                      </div>
+                    </div>
+
+                    {/* Social Sharing Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-3 mb-4">
+                      {/* Facebook Share Button */}
+                      <Button
+                        onClick={shareToFacebook}
+                        className="bg-[#1877F2] text-white hover:bg-[#166FE5] px-6 py-2 flex-1"
+                      >
+                        <FaFacebookF className="w-4 h-4 mr-2" />
+                        Share on Facebook
+                      </Button>
+
+                      {/* Instagram Share Button */}
+                      <Button
+                        onClick={shareToInstagram}
+                        className="bg-gradient-to-r from-[#E4405F] via-[#F56040] to-[#F77737] text-white hover:from-[#D73A56] hover:via-[#E55A3C] hover:to-[#E66D33] px-6 py-2 flex-1"
+                      >
+                        <FaInstagram className="w-4 h-4 mr-2" />
+                        Share on Instagram
+                      </Button>
+                    </div>
                   </div>
 
                   <div className="space-y-3">
