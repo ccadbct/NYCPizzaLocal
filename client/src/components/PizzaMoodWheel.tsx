@@ -333,91 +333,61 @@ export default function PizzaMoodWheel() {
     });
   };
 
-  const shareToFacebook = async () => {
+  const saveFacebookImage = async () => {
     if (!result) return;
 
     try {
       const imageBlob = await generateShareImage('facebook');
-      if (!imageBlob) return;
-
-      const postText = `🍕 Just discovered my perfect pizza match at Andrea's Pizza! 
-
-${result.mood} → ${result.pizza}
-"${result.personality}"
-
-Show this post for your FREE SLICE!
-📍 50 2nd Ave, East Village NYC • One per customer per day
-
-#AndreasPizza #NYCPizza #EastVillage #FreePizza #PizzaMoodWheel #AuthenticItalian`;
-
-      // Try Web Share API first (works on mobile)
-      if (navigator.share && navigator.canShare) {
-        try {
-          const file = new File([imageBlob], 'andrea-pizza-result.png', { type: 'image/png' });
-          const canShareFiles = navigator.canShare({ files: [file] });
-          
-          if (canShareFiles) {
-            await navigator.share({
-              title: 'My Pizza Personality Result - Andrea\'s Pizza',
-              text: postText,
-              files: [file]
-            });
-            return;
-          }
-        } catch (shareError) {
-          console.log('Web Share API failed, using fallback');
-        }
+      if (!imageBlob) {
+        alert('Unable to generate image. Please try again.');
+        return;
       }
 
-      // Fallback: Download image and open Facebook
+      // Download the image
       const link = document.createElement('a');
       link.href = URL.createObjectURL(imageBlob);
-      link.download = 'andrea-pizza-result-facebook.png';
+      link.download = 'andrea-pizza-personality-facebook.png';
       link.click();
+      
+      // Clean up the URL object
+      setTimeout(() => {
+        URL.revokeObjectURL(link.href);
+      }, 100);
 
-      // Copy text to clipboard
-      navigator.clipboard.writeText(postText).catch(() => {});
-      
-      // Open Facebook
-      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
-      window.open(facebookUrl, '_blank', 'width=600,height=400');
-      
-      alert('📱 Facebook image downloaded and text copied!\n\n1. Upload the downloaded image to Facebook\n2. Paste the copied text as your caption\n3. Show your post at Andrea\'s Pizza for FREE SLICE!');
+      alert('📱 Image saved to your device!\n\n1. Open Facebook and create a new post\n2. Upload the downloaded image\n3. Add your own caption or tags\n4. Show your post at Andrea\'s Pizza for FREE SLICE!\n\n📍 50 2nd Ave, NYC • One per customer per day');
 
     } catch (error) {
-      console.error('Error generating Facebook share image:', error);
-      alert('Unable to generate share image. Please try again.');
+      console.error('Error generating Facebook image:', error);
+      alert('Unable to generate image. Please try again.');
     }
   };
 
-  const shareToInstagram = async () => {
+  const saveInstagramImage = async () => {
     if (!result) return;
 
-    const postText = `🍕 Just discovered my perfect pizza match @andreaspizza! 
-
-${result.mood} → ${result.pizza}
-"${result.personality}"
-
-Show this post for your FREE SLICE!
-📍 50 2nd Ave, East Village NYC • One per customer per day
-
-#AndreasPizza #NYCPizza #EastVillage #FreePizza #PizzaMoodWheel #AuthenticItalian #PizzaLover #NYC #FoodieLife`;
-
-    // Copy caption to clipboard and open Instagram directly
     try {
-      await navigator.clipboard.writeText(postText);
+      const imageBlob = await generateShareImage('instagram');
+      if (!imageBlob) {
+        alert('Unable to generate image. Please try again.');
+        return;
+      }
+
+      // Download the image
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(imageBlob);
+      link.download = 'andrea-pizza-personality.png';
+      link.click();
       
-      // Open Instagram in new tab
-      window.open('https://www.instagram.com/', '_blank');
-      
-      // Show simple success message
-      alert('📱 Instagram caption copied and Instagram opened!\n\n1. Create a new post on Instagram\n2. Take a photo of your pizza choice\n3. Paste the copied caption\n4. Show your post at Andrea\'s Pizza for FREE SLICE!');
-      
-    } catch (clipboardError) {
-      // If clipboard fails, still open Instagram but show the text
-      window.open('https://www.instagram.com/', '_blank');
-      
-      alert(`📱 Instagram opened!\n\nCopy this caption for your post:\n\n${postText}\n\n1. Create a new post on Instagram\n2. Take a photo of your pizza choice\n3. Use this caption\n4. Show your post for FREE SLICE!`);
+      // Clean up the URL object
+      setTimeout(() => {
+        URL.revokeObjectURL(link.href);
+      }, 100);
+
+      alert('📱 Image saved to your device!\n\n1. Open Instagram and create a new post\n2. Upload the downloaded image\n3. Add your own caption or tags\n4. Show your post at Andrea\'s Pizza for FREE SLICE!\n\n📍 50 2nd Ave, NYC • One per customer per day');
+
+    } catch (error) {
+      console.error('Error generating image:', error);
+      alert('Unable to generate image. Please try again.');
     }
   };
 
@@ -569,22 +539,22 @@ Show this post for your FREE SLICE!
 
                     {/* Social Sharing Buttons */}
                     <div className="flex flex-col gap-3 mb-4">
-                      {/* Facebook Share Button */}
+                      {/* Facebook Save Image Button */}
                       <Button
-                        onClick={shareToFacebook}
+                        onClick={saveFacebookImage}
                         className="bg-[#1877F2] text-white hover:bg-[#166FE5] px-4 py-2 w-full"
                       >
                         <FaFacebookF className="w-4 h-4 mr-2" />
-                        Share on Facebook
+                        Save Facebook Image
                       </Button>
 
-                      {/* Instagram Share Button */}
+                      {/* Instagram Save Image Button */}
                       <Button
-                        onClick={shareToInstagram}
+                        onClick={saveInstagramImage}
                         className="bg-gradient-to-r from-[#E4405F] via-[#F56040] to-[#F77737] text-white hover:from-[#D73A56] hover:via-[#E55A3C] hover:to-[#E66D33] px-4 py-2 w-full"
                       >
                         <FaInstagram className="w-4 h-4 mr-2" />
-                        Share on Instagram
+                        Save Instagram Image
                       </Button>
                     </div>
                   </div>
