@@ -15,6 +15,7 @@ interface SpinResult {
   mood: string;
   pizza: string;
   description: string;
+  personality: string;
 }
 
 export default function PizzaMoodWheel() {
@@ -83,39 +84,64 @@ export default function PizzaMoodWheel() {
     }
   ];
 
-  const spinWheel = () => {
+  const personalityDescriptions = {
+    "Feeling Classic": "You appreciate timeless perfection",
+    "Need Comfort": "You know what makes you happy",
+    "Want Fresh": "You crave authentic simplicity",
+    "Craving Tradition": "You respect the old ways",
+    "Feeling Fancy": "You have sophisticated taste",
+    "Want Adventure": "You live life boldly",
+    "Keep It Simple": "You find beauty in basics",
+    "Go Big": "You don't do anything halfway"
+  };
+
+  const spinToSegment = (targetSegmentId: number) => {
     if (isSpinning) return;
 
     setIsSpinning(true);
     setResult(null);
     setShowCelebration(false);
 
-    // Generate random rotation (minimum 3 full rotations + random angle for smoother spin)
-    const randomAngle = Math.random() * 360;
-    const spins = 3 + Math.random() * 2; // 3-5 full rotations (reduced for smoother feel)
-    const totalRotation = rotation + (spins * 360) + randomAngle;
+    const targetSegment = segments.find(s => s.id === targetSegmentId);
+    if (!targetSegment) return;
+
+    // Calculate target angle - we want the segment to align with the pointer (top)
+    const segmentAngle = 360 / segments.length; // 45 degrees per segment
+    const targetSegmentAngle = (targetSegmentId - 1) * segmentAngle; // 0-based index
+    const centerOfSegment = targetSegmentAngle + (segmentAngle / 2);
+    
+    // Calculate rotation needed to align segment with pointer (top = 0 degrees)
+    // We need to rotate so the segment center is at 0 degrees (top)
+    const targetRotation = 360 - centerOfSegment;
+    
+    // Add multiple full rotations for effect (3-4 spins)
+    const spins = 3 + Math.random(); // 3-4 full rotations
+    const totalRotation = rotation + (spins * 360) + targetRotation;
     
     setRotation(totalRotation);
 
-    // Calculate which segment we landed on
-    const segmentAngle = 360 / segments.length; // 45 degrees per segment
-    const normalizedAngle = (360 - (totalRotation % 360)) % 360;
-    const segmentIndex = Math.floor(normalizedAngle / segmentAngle);
-    const selectedSegment = segments[segmentIndex];
-
-    // Show result after animation completes (4 seconds to match CSS)
+    // Show result after animation completes
     setTimeout(() => {
       setIsSpinning(false);
       setResult({
-        mood: selectedSegment.mood,
-        pizza: selectedSegment.pizza,
-        description: selectedSegment.description
+        mood: targetSegment.mood,
+        pizza: targetSegment.pizza,
+        description: targetSegment.description,
+        personality: personalityDescriptions[targetSegment.mood as keyof typeof personalityDescriptions]
       });
       setShowCelebration(true);
       
       // Hide celebration after 2 seconds
       setTimeout(() => setShowCelebration(false), 2000);
     }, 4000);
+  };
+
+  const surpriseMe = () => {
+    if (isSpinning) return;
+
+    // Random segment selection for "Surprise Me!"
+    const randomSegmentId = Math.floor(Math.random() * segments.length) + 1;
+    spinToSegment(randomSegmentId);
   };
 
   const resetWheel = () => {
@@ -158,6 +184,26 @@ export default function PizzaMoodWheel() {
                   }).join(', ')})`
                 }}
               >
+                {/* Clickable Segment Areas */}
+                {segments.map((segment, index) => {
+                  const angle = (index * 45); // Start angle of segment
+                  const segmentAngle = 45; // Each segment is 45 degrees
+                  
+                  return (
+                    <div
+                      key={segment.id}
+                      className="absolute inset-0 cursor-pointer group"
+                      style={{
+                        clipPath: `polygon(50% 50%, ${50 + 45 * Math.cos((angle - 90) * Math.PI / 180)}% ${50 + 45 * Math.sin((angle - 90) * Math.PI / 180)}%, ${50 + 45 * Math.cos((angle + segmentAngle - 90) * Math.PI / 180)}% ${50 + 45 * Math.sin((angle + segmentAngle - 90) * Math.PI / 180)}%)`
+                      }}
+                      onClick={() => spinToSegment(segment.id)}
+                      title={`Click for ${segment.mood}`}
+                    >
+                      <div className="w-full h-full group-hover:opacity-80 transition-opacity" />
+                    </div>
+                  );
+                })}
+
                 {/* Segment Labels */}
                 {segments.map((segment, index) => {
                   const angle = (index * 45) + 22.5; // Center of each segment
@@ -167,8 +213,8 @@ export default function PizzaMoodWheel() {
                   
                   return (
                     <div
-                      key={segment.id}
-                      className="absolute text-white font-bold text-xs sm:text-sm text-center"
+                      key={`label-${segment.id}`}
+                      className="absolute text-white font-bold text-xs sm:text-sm text-center pointer-events-none"
                       style={{
                         transform: `translate(-50%, -50%) rotate(${angle}deg)`,
                         left: `50%`,
@@ -189,14 +235,14 @@ export default function PizzaMoodWheel() {
                 {/* Center Hub */}
                 <div className="absolute inset-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-pizza-green rounded-full border-4 border-white shadow-lg flex items-center justify-center">
                   <Button
-                    onClick={spinWheel}
+                    onClick={surpriseMe}
                     disabled={isSpinning}
-                    className="w-full h-full rounded-full bg-pizza-red hover:bg-red-700 text-white font-bold text-sm disabled:opacity-70"
+                    className="w-full h-full rounded-full bg-pizza-red hover:bg-red-700 text-white font-bold text-xs disabled:opacity-70"
                   >
                     {isSpinning ? (
-                      <RotateCw className="w-5 h-5 animate-spin" />
+                      <RotateCw className="w-4 h-4 animate-spin" />
                     ) : (
-                      'SPIN'
+                      'Surprise Me!'
                     )}
                   </Button>
                 </div>
@@ -224,6 +270,9 @@ export default function PizzaMoodWheel() {
                     </h3>
                     <div className="text-lg text-gray-600 mb-2">
                       You're {result.mood.toLowerCase()}
+                    </div>
+                    <div className="text-lg text-pizza-green font-semibold mb-3 italic">
+                      "{result.personality}"
                     </div>
                     <div className="text-2xl font-bold text-pizza-red mb-4">
                       {result.pizza}
@@ -264,16 +313,16 @@ export default function PizzaMoodWheel() {
                       Ready to Discover Your Pizza?
                     </h3>
                     <p className="text-gray-500">
-                      Click the wheel to spin and find your perfect match based on your current mood!
+                      Click any mood segment on the wheel to find your perfect pizza match, or hit "Surprise Me!" for a random choice!
                     </p>
                   </div>
                   
                   <Button
-                    onClick={spinWheel}
+                    onClick={surpriseMe}
                     disabled={isSpinning}
                     className="bg-pizza-green text-white hover:bg-green-700 px-8 py-3 text-lg font-semibold"
                   >
-                    Start Spinning!
+                    Surprise Me!
                   </Button>
                 </CardContent>
               </Card>
