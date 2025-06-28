@@ -90,9 +90,9 @@ export default function PizzaMoodWheel() {
     setResult(null);
     setShowCelebration(false);
 
-    // Generate random rotation (minimum 5 full rotations + random angle)
+    // Generate random rotation (minimum 3 full rotations + random angle for smoother spin)
     const randomAngle = Math.random() * 360;
-    const spins = 5 + Math.random() * 3; // 5-8 full rotations
+    const spins = 3 + Math.random() * 2; // 3-5 full rotations (reduced for smoother feel)
     const totalRotation = rotation + (spins * 360) + randomAngle;
     
     setRotation(totalRotation);
@@ -103,7 +103,7 @@ export default function PizzaMoodWheel() {
     const segmentIndex = Math.floor(normalizedAngle / segmentAngle);
     const selectedSegment = segments[segmentIndex];
 
-    // Show result after animation completes
+    // Show result after animation completes (4 seconds to match CSS)
     setTimeout(() => {
       setIsSpinning(false);
       setResult({
@@ -115,7 +115,7 @@ export default function PizzaMoodWheel() {
       
       // Hide celebration after 2 seconds
       setTimeout(() => setShowCelebration(false), 2000);
-    }, 3500);
+    }, 4000);
   };
 
   const resetWheel = () => {
@@ -147,11 +147,10 @@ export default function PizzaMoodWheel() {
               {/* Wheel */}
               <div
                 ref={wheelRef}
-                className={`relative w-full h-full rounded-full border-8 border-pizza-green shadow-2xl transition-transform duration-[3500ms] ease-out ${
-                  isSpinning ? 'animate-pulse' : ''
-                }`}
+                className="relative w-full h-full rounded-full border-8 border-pizza-green shadow-2xl"
                 style={{
                   transform: `rotate(${rotation}deg)`,
+                  transition: isSpinning ? 'transform 4s cubic-bezier(0.23, 1, 0.320, 1)' : 'none',
                   background: `conic-gradient(${segments.map((segment, index) => {
                     const startAngle = (index * 45);
                     const endAngle = ((index + 1) * 45);
