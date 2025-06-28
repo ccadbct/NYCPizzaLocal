@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import TickerBanner from "@/components/TickerBanner";
 import Hero from "@/components/Hero";
 import ChefSection from "@/components/ChefSection";
+import ChefAndreaSection from "@/components/ChefAndreaSection";
 import MenuPreview from "@/components/MenuPreview";
 import JourneySection from "@/components/JourneySection";
 import ContactSection from "@/components/ContactSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <TickerBanner />
       <Hero />
       <ChefSection />
+      <ChefAndreaSection />
       <MenuPreview />
       <JourneySection />
       <ContactSection />
