@@ -5,8 +5,9 @@ import { ExternalLink } from "lucide-react";
 interface MenuItem {
   id: number;
   name: string;
-  description: string;
-  price: string;
+  slicePrice: string;
+  price12: string;
+  price18: string;
   image: string;
   alt: string;
 }
@@ -15,27 +16,30 @@ export default function MenuPreview() {
   const menuItems: MenuItem[] = [
     {
       id: 1,
-      name: "Classic Margherita",
-      description: "San Marzano tomatoes, fresh mozzarella, basil, extra virgin olive oil",
-      price: "$18",
-      image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      alt: "Classic Margherita pizza with fresh basil and mozzarella"
+      name: "Classic Cheese",
+      slicePrice: "$4.00",
+      price12: "$21.00",
+      price18: "$27.00",
+      image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+      alt: "Classic cheese pizza with melted mozzarella"
     },
     {
       id: 2,
-      name: "NYC Pepperoni",
-      description: "Premium pepperoni, mozzarella, signature tomato sauce",
-      price: "$22",
-      image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      alt: "New York style pepperoni pizza with crispy edges"
+      name: "Margherita",
+      slicePrice: "$4.75",
+      price12: "$23.00",
+      price18: "$31.00",
+      image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+      alt: "Margherita pizza with fresh basil and mozzarella"
     },
     {
       id: 3,
-      name: "Garden Fresh",
-      description: "Roasted vegetables, goat cheese, arugula, balsamic drizzle",
-      price: "$24",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      alt: "Wood-fired pizza topped with fresh vegetables and herbs"
+      name: "Pepperoni",
+      slicePrice: "$5.00",
+      price12: "$24.00",
+      price18: "$33.00",
+      image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+      alt: "Pepperoni pizza with premium pepperoni slices"
     }
   ];
 
@@ -60,13 +64,20 @@ export default function MenuPreview() {
                 className="w-full h-48 object-cover"
               />
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-pizza-green mb-2">{item.name}</h3>
-                <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-pizza-red">{item.price}</span>
-                  <Button className="bg-pizza-green text-white hover:bg-green-700 text-sm">
-                    Add to Order
-                  </Button>
+                <h3 className="text-xl font-bold text-pizza-green mb-4">{item.name}</h3>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">Slice</span>
+                    <span className="text-lg font-bold text-pizza-red">{item.slicePrice}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">12"</span>
+                    <span className="text-lg font-bold text-pizza-red">{item.price12}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600">18"</span>
+                    <span className="text-lg font-bold text-pizza-red">{item.price18}</span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
