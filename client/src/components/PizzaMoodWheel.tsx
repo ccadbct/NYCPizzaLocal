@@ -147,7 +147,7 @@ export default function PizzaMoodWheel() {
     spinToSegment(randomSegmentId);
   };
 
-  // Canvas-based image generation for social sharing
+  // Enhanced Canvas-based image generation for social sharing
   const generateShareImage = async (format: 'facebook' | 'instagram'): Promise<Blob | null> => {
     if (!result) return null;
 
@@ -156,8 +156,8 @@ export default function PizzaMoodWheel() {
     if (!ctx) return null;
 
     // Set canvas dimensions
-    const width = format === 'facebook' ? 1200 : 1080;  // Facebook vs Instagram optimal sizes
-    const height = format === 'facebook' ? 630 : 1080;  // Facebook landscape vs Instagram square
+    const width = format === 'facebook' ? 1200 : 1080;
+    const height = format === 'facebook' ? 630 : 1080;
     canvas.width = width;
     canvas.height = height;
 
@@ -168,96 +168,179 @@ export default function PizzaMoodWheel() {
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
-    // Add pizza-themed decorative elements
-    ctx.fillStyle = '#2d5a3d';  // pizza green
-    ctx.fillRect(0, 0, width, 20);  // top border
-    ctx.fillRect(0, height - 20, width, 20);  // bottom border
-
-    // Title section
+    // Decorative top border with pattern
     ctx.fillStyle = '#2d5a3d';
-    ctx.font = 'bold 48px Arial, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText("Andrea's Pizza", width / 2, 80);
-    
-    // Subtitle
-    ctx.font = 'normal 24px Arial, sans-serif';
-    ctx.fillStyle = '#666';
-    ctx.fillText("Pizza Personality Match", width / 2, 120);
+    ctx.fillRect(0, 0, width, 30);
+    ctx.fillStyle = '#c4362e';
+    ctx.fillRect(0, 30, width, 10);
 
-    // Main content area
-    const contentY = 180;
+    // Pizza slice graphics as decorative elements
+    const drawPizzaSlice = (x: number, y: number, size: number) => {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.fillStyle = '#f4e8d0';
+      ctx.beginPath();
+      ctx.arc(0, 0, size, 0, Math.PI / 3);
+      ctx.lineTo(0, 0);
+      ctx.fill();
+      
+      // Crust
+      ctx.strokeStyle = '#d4a574';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.arc(0, 0, size, 0, Math.PI / 3);
+      ctx.stroke();
+      
+      // Toppings
+      ctx.fillStyle = '#c4362e';
+      ctx.beginPath();
+      ctx.arc(size * 0.3, size * 0.2, 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(size * 0.6, size * 0.4, 3, 0, Math.PI * 2);
+      ctx.fill();
+      
+      ctx.restore();
+    };
+
+    // Add decorative pizza slices
+    drawPizzaSlice(80, 80, 30);
+    drawPizzaSlice(width - 80, 80, 30);
+    if (format === 'instagram') {
+      drawPizzaSlice(80, height - 80, 30);
+      drawPizzaSlice(width - 80, height - 80, 30);
+    }
+
+    // Logo area
+    ctx.fillStyle = '#2d5a3d';
+    ctx.font = 'bold 52px Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.fillText("Andrea's Pizza", width / 2, format === 'facebook' ? 90 : 110);
     
-    // Mood result
-    ctx.fillStyle = '#c4362e';  // pizza red
+    // Subtitle with styling
+    ctx.fillStyle = '#666';
+    ctx.font = 'italic 22px Georgia, serif';
+    ctx.fillText("East Village • Authentic Italian", width / 2, format === 'facebook' ? 120 : 140);
+
+    // Main content positioning
+    const startY = format === 'facebook' ? 180 : 220;
+    
+    // Mood section with styling
+    ctx.fillStyle = '#2d5a3d';
+    ctx.font = 'normal 24px Arial, sans-serif';
+    ctx.fillText("My Pizza Personality:", width / 2, startY);
+    
+    ctx.fillStyle = '#c4362e';
+    ctx.font = 'bold 38px Arial, sans-serif';
+    ctx.fillText(result.mood, width / 2, startY + 50);
+    
+    // Stylized arrow
+    ctx.fillStyle = '#2d5a3d';
     ctx.font = 'bold 36px Arial, sans-serif';
-    ctx.fillText(result.mood, width / 2, contentY);
+    ctx.fillText('↓', width / 2, startY + 90);
     
-    // Arrow
-    ctx.fillStyle = '#333';
-    ctx.font = 'normal 32px Arial, sans-serif';
-    ctx.fillText('→', width / 2, contentY + 50);
-    
-    // Pizza recommendation
+    // Pizza recommendation with emoji
     ctx.fillStyle = '#2d5a3d';
     ctx.font = 'bold 42px Arial, sans-serif';
-    ctx.fillText(result.pizza, width / 2, contentY + 100);
+    ctx.fillText('🍕 ' + result.pizza, width / 2, startY + 140);
     
-    // Personality quote
+    // Personality quote in stylized box
+    const quoteY = startY + 200;
+    const quoteBox = {
+      x: width * 0.1,
+      y: quoteY - 30,
+      width: width * 0.8,
+      height: 60
+    };
+    
+    // Quote background
+    ctx.fillStyle = 'rgba(196, 54, 46, 0.1)';
+    ctx.fillRect(quoteBox.x, quoteBox.y, quoteBox.width, quoteBox.height);
+    ctx.strokeStyle = '#c4362e';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(quoteBox.x, quoteBox.y, quoteBox.width, quoteBox.height);
+    
+    // Quote text
     ctx.fillStyle = '#c4362e';
-    ctx.font = 'italic 28px Arial, sans-serif';
-    ctx.fillText(`"${result.personality}"`, width / 2, contentY + 160);
-    
-    // Description
-    ctx.fillStyle = '#666';
-    ctx.font = 'normal 22px Arial, sans-serif';
-    const maxWidth = width - 100;
+    ctx.font = 'italic bold 26px Georgia, serif';
+    ctx.fillText(`"${result.personality}"`, width / 2, quoteY);
+
+    // Description with better formatting
+    const descY = quoteY + 80;
+    ctx.fillStyle = '#333';
+    ctx.font = 'normal 20px Arial, sans-serif';
+    const maxWidth = width * 0.8;
     const words = result.description.split(' ');
     let line = '';
-    let y = contentY + 220;
+    let y = descY;
     
     for (let n = 0; n < words.length; n++) {
       const testLine = line + words[n] + ' ';
       const metrics = ctx.measureText(testLine);
-      const testWidth = metrics.width;
-      if (testWidth > maxWidth && n > 0) {
+      if (metrics.width > maxWidth && n > 0) {
         ctx.fillText(line, width / 2, y);
         line = words[n] + ' ';
-        y += 30;
+        y += 25;
       } else {
         line = testLine;
       }
     }
     ctx.fillText(line, width / 2, y);
 
-    // Free slice offer
-    const offerY = height - 200;
+    // Free slice offer section
+    const offerY = height - (format === 'facebook' ? 140 : 180);
+    
+    // Offer background
+    const offerBox = {
+      x: width * 0.05,
+      y: offerY - 50,
+      width: width * 0.9,
+      height: format === 'facebook' ? 90 : 120
+    };
+    
+    ctx.fillStyle = 'rgba(244, 232, 208, 0.9)';
+    ctx.fillRect(offerBox.x, offerBox.y, offerBox.width, offerBox.height);
+    ctx.strokeStyle = '#c4362e';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(offerBox.x, offerBox.y, offerBox.width, offerBox.height);
+    
+    // Offer text
     ctx.fillStyle = '#c4362e';
-    ctx.font = 'bold 32px Arial, sans-serif';
-    ctx.fillText('🍕 FREE SLICE OFFER! 🍕', width / 2, offerY);
+    ctx.font = 'bold 28px Arial, sans-serif';
+    ctx.fillText('🍕 FREE SLICE OFFER! 🍕', width / 2, offerY - 10);
     
-    ctx.fillStyle = '#333';
-    ctx.font = 'normal 20px Arial, sans-serif';
-    ctx.fillText('Show this post at Andrea\'s Pizza for your FREE SLICE!', width / 2, offerY + 40);
-    
-    // Restaurant info
     ctx.fillStyle = '#2d5a3d';
     ctx.font = 'bold 18px Arial, sans-serif';
-    ctx.fillText('📍 50 2nd Ave, NYC • (646) 398-8386', width / 2, offerY + 80);
-    ctx.fillText('One per customer per day', width / 2, offerY + 105);
+    ctx.fillText('Show this post at Andrea\'s Pizza', width / 2, offerY + 20);
+    
+    // Restaurant info
+    ctx.fillStyle = '#333';
+    ctx.font = 'normal 16px Arial, sans-serif';
+    ctx.fillText('📍 50 2nd Ave, NYC • (646) 398-8386', width / 2, offerY + 45);
+    if (format === 'instagram') {
+      ctx.fillText('One per customer per day', width / 2, offerY + 65);
+    }
+
+    // Decorative bottom border
+    ctx.fillStyle = '#c4362e';
+    ctx.fillRect(0, height - 40, width, 10);
+    ctx.fillStyle = '#2d5a3d';
+    ctx.fillRect(0, height - 30, width, 30);
 
     // Convert canvas to blob
     return new Promise(resolve => {
-      canvas.toBlob(resolve, 'image/png');
+      canvas.toBlob(resolve, 'image/png', 0.9);
     });
   };
 
   const shareToFacebook = async () => {
     if (!result) return;
 
-    const imageBlob = await generateShareImage('facebook');
-    if (!imageBlob) return;
+    try {
+      const imageBlob = await generateShareImage('facebook');
+      if (!imageBlob) return;
 
-    const postText = `🍕 Just discovered my perfect pizza match at Andrea's Pizza! 
+      const postText = `🍕 Just discovered my perfect pizza match at Andrea's Pizza! 
 
 ${result.mood} → ${result.pizza}
 "${result.personality}"
@@ -267,30 +350,54 @@ Show this post for your FREE SLICE!
 
 #AndreasPizza #NYCPizza #EastVillage #FreePizza #PizzaMoodWheel #AuthenticItalian`;
 
-    if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([imageBlob], 'pizza-result.png', { type: 'image/png' })] })) {
-      const file = new File([imageBlob], 'pizza-result.png', { type: 'image/png' });
-      navigator.share({
-        title: 'My Pizza Personality Result',
-        text: postText,
-        files: [file]
-      });
-    } else {
-      // Fallback to Facebook sharer with text
-      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(postText)}`;
-      window.open(facebookUrl, '_blank', 'width=600,height=400');
-      
-      // Also download the image for manual upload
+      // Try Web Share API first (works on mobile)
+      if (navigator.share && navigator.canShare) {
+        try {
+          const file = new File([imageBlob], 'andrea-pizza-result.png', { type: 'image/png' });
+          const canShareFiles = navigator.canShare({ files: [file] });
+          
+          if (canShareFiles) {
+            await navigator.share({
+              title: 'My Pizza Personality Result - Andrea\'s Pizza',
+              text: postText,
+              files: [file]
+            });
+            return;
+          }
+        } catch (shareError) {
+          console.log('Web Share API failed, using fallback');
+        }
+      }
+
+      // Fallback: Download image and open Facebook
       const link = document.createElement('a');
       link.href = URL.createObjectURL(imageBlob);
-      link.download = 'pizza-result-facebook.png';
+      link.download = 'andrea-pizza-result-facebook.png';
       link.click();
+
+      // Copy text to clipboard
+      navigator.clipboard.writeText(postText).catch(() => {});
+      
+      // Open Facebook
+      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+      window.open(facebookUrl, '_blank', 'width=600,height=400');
+      
+      alert('📱 Facebook image downloaded and text copied!\n\n1. Upload the downloaded image to Facebook\n2. Paste the copied text as your caption\n3. Show your post at Andrea\'s Pizza for FREE SLICE!');
+
+    } catch (error) {
+      console.error('Error generating Facebook share image:', error);
+      alert('Unable to generate share image. Please try again.');
     }
   };
 
-  const shareToInstagram = () => {
+  const shareToInstagram = async () => {
     if (!result) return;
 
-    const postText = `🍕 Just discovered my perfect pizza match @andreaspizza! 
+    try {
+      const imageBlob = await generateShareImage('instagram');
+      if (!imageBlob) return;
+
+      const postText = `🍕 Just discovered my perfect pizza match @andreaspizza! 
 
 ${result.mood} → ${result.pizza}
 "${result.personality}"
@@ -300,20 +407,41 @@ Show this post for your FREE SLICE!
 
 #AndreasPizza #NYCPizza #EastVillage #FreePizza #PizzaMoodWheel #AuthenticItalian #PizzaLover #NYC #FoodieLife`;
 
-    // Copy caption to clipboard
-    navigator.clipboard.writeText(postText).then(() => {
-      // Try to open Instagram app or website
-      const instagramUrl = 'https://www.instagram.com/';
-      window.open(instagramUrl, '_blank');
-      
-      alert('📱 Instagram caption copied and Instagram opened!\n\n1. Create a new post on Instagram\n2. Add a photo of your pizza choice\n3. Paste the copied caption\n4. Show your post at the restaurant for FREE SLICE!');
-    }).catch(() => {
-      // Fallback if clipboard fails
-      const instagramUrl = 'https://www.instagram.com/';
-      window.open(instagramUrl, '_blank');
-      
-      alert(`📱 Instagram opened!\n\nCopy this caption:\n\n${postText}\n\n1. Create a new post on Instagram\n2. Add a photo of your pizza choice\n3. Use this caption\n4. Show your post for FREE SLICE!`);
-    });
+      // Download the custom image
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(imageBlob);
+      link.download = 'andrea-pizza-result-instagram.png';
+      link.click();
+
+      // Copy caption to clipboard
+      navigator.clipboard.writeText(postText).then(() => {
+        // Try to open Instagram app via URL scheme, fallback to website
+        const instagramAppUrl = 'instagram://camera';
+        const instagramWebUrl = 'https://www.instagram.com/';
+        
+        // First try app URL scheme
+        const testLink = document.createElement('a');
+        testLink.href = instagramAppUrl;
+        testLink.click();
+        
+        // Fallback to web after a delay
+        setTimeout(() => {
+          window.open(instagramWebUrl, '_blank');
+        }, 1000);
+        
+        alert('📱 Instagram image downloaded and caption copied!\n\n1. Upload the downloaded image to Instagram\n2. Paste the copied caption\n3. Show your post at Andrea\'s Pizza for FREE SLICE!');
+      }).catch(() => {
+        // Fallback if clipboard fails
+        const instagramWebUrl = 'https://www.instagram.com/';
+        window.open(instagramWebUrl, '_blank');
+        
+        alert(`📱 Instagram image downloaded!\n\nCopy this caption:\n\n${postText}\n\n1. Upload the image to Instagram\n2. Use this caption\n3. Show your post for FREE SLICE!`);
+      });
+
+    } catch (error) {
+      console.error('Error generating Instagram share image:', error);
+      alert('Unable to generate share image. Please try again.');
+    }
   };
 
   const resetWheel = () => {
