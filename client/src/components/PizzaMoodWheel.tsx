@@ -385,8 +385,13 @@ export default function PizzaMoodWheel() {
     ctx.fillText('🍕 FREE SLICE OFFER! 🍕', width / 2, offerY - 10);
     
     ctx.fillStyle = '#2d5a3d';
-    ctx.font = 'bold 18px Arial, sans-serif';
-    ctx.fillText('Show this post at Andrea\'s Pizza', width / 2, offerY + 20);
+    ctx.font = 'bold 16px Arial, sans-serif';
+    if (format === 'facebook') {
+      ctx.fillText('Post this & show your post at Andrea\'s Pizza for FREE SLICE!', width / 2, offerY + 20);
+    } else {
+      ctx.fillText('Show your social media post at', width / 2, offerY + 15);
+      ctx.fillText('Andrea\'s Pizza for FREE SLICE!', width / 2, offerY + 35);
+    }
     
     // Restaurant info
     ctx.fillStyle = '#333';
@@ -429,7 +434,7 @@ export default function PizzaMoodWheel() {
         URL.revokeObjectURL(link.href);
       }, 100);
 
-      alert('📱 Image downloaded!\n\nTo save to Photos:\n1. Open your Downloads folder\n2. Tap the image file\n3. Tap the Share button\n4. Select "Save to Photos"\n\nThen post to Facebook for your FREE SLICE!\n📍 50 2nd Ave, NYC • One per customer per day');
+      alert('📱 Image downloaded!\n\nTo save to Photos:\n1. Open your Downloads folder\n2. Tap the image file\n3. Tap the Share button\n4. Select "Save to Photos"\n\n5. Post to Facebook\n6. Show your Facebook post at Andrea\'s Pizza for FREE SLICE!\n📍 50 2nd Ave, NYC • One per customer per day');
 
     } catch (error) {
       console.error('Error generating Facebook image:', error);
@@ -458,7 +463,7 @@ export default function PizzaMoodWheel() {
         URL.revokeObjectURL(link.href);
       }, 100);
 
-      alert('📱 Image downloaded!\n\nTo save to Photos:\n1. Open your Downloads folder\n2. Tap the image file\n3. Tap the Share button\n4. Select "Save to Photos"\n\nThen post to Instagram for your FREE SLICE!\n📍 50 2nd Ave, NYC • One per customer per day');
+      alert('📱 Image downloaded!\n\nTo save to Photos:\n1. Open your Downloads folder\n2. Tap the image file\n3. Tap the Share button\n4. Select "Save to Photos"\n\n5. Post to Instagram\n6. Show your Instagram post at Andrea\'s Pizza for FREE SLICE!\n📍 50 2nd Ave, NYC • One per customer per day');
 
     } catch (error) {
       console.error('Error generating image:', error);
