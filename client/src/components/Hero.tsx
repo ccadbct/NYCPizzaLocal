@@ -19,11 +19,7 @@ export default function Hero() {
               <span className="text-pizza-red">STYLE PIZZA</span><br />
               IN EAST VILLAGE
             </h1>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Experience the true taste of New York with our traditional recipes,
-              hand-tossed dough, and authentic ingredients imported from Italy.
-              Three generations of pizza mastery in the heart of East Village.
-            </p>
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">From Andrea Kenuti, veteran of acclaimed NYC pizzerias Scarr's Pizza (7 years) and L'Industrie. Now bringing his mastery of traditional New York slices to 50 Second Avenue with organic, carefully sourced ingredients and that classic vibe you've been craving. Every slice is crafted with the expertise that only comes from years at NYC's most celebrated spots.</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 onClick={() => window.open("tel:6463988386")}
