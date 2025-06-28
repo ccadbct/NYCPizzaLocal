@@ -403,56 +403,21 @@ Show this post for your FREE SLICE!
 
 #AndreasPizza #NYCPizza #EastVillage #FreePizza #PizzaMoodWheel #AuthenticItalian #PizzaLover #NYC #FoodieLife`;
 
+    // Copy caption to clipboard and open Instagram directly
     try {
-      // Try Web Share API first (best on mobile)
-      if (navigator.share) {
-        const imageBlob = await generateShareImage('instagram');
-        if (imageBlob) {
-          try {
-            const file = new File([imageBlob], 'andrea-pizza-result.png', { type: 'image/png' });
-            await navigator.share({
-              title: 'My Pizza Personality - Andrea\'s Pizza',
-              text: postText,
-              files: [file]
-            });
-            return; // Success - exit function
-          } catch (shareError) {
-            console.log('Web Share API with files failed, trying text only');
-            try {
-              await navigator.share({
-                title: 'My Pizza Personality - Andrea\'s Pizza',
-                text: postText,
-                url: window.location.href
-              });
-              return; // Success - exit function
-            } catch (textShareError) {
-              console.log('Web Share API completely failed, using fallback');
-            }
-          }
-        }
-      }
-
-      // Fallback approach: Copy text and open Instagram
-      navigator.clipboard.writeText(postText).then(() => {
-        // Try to open Instagram
-        const instagramWebUrl = 'https://www.instagram.com/';
-        window.open(instagramWebUrl, '_blank');
-        
-        alert('📱 Instagram caption copied and Instagram opened!\n\n1. Create a new post on Instagram\n2. Take a photo of your pizza choice\n3. Paste the copied caption\n4. Show your post at Andrea\'s Pizza for FREE SLICE!');
-      }).catch(() => {
-        // Final fallback - just open Instagram
-        const instagramWebUrl = 'https://www.instagram.com/';
-        window.open(instagramWebUrl, '_blank');
-        
-        alert(`📱 Instagram opened!\n\nUse this caption for your post:\n\n${postText}\n\n1. Create a new post on Instagram\n2. Take a photo of your pizza choice\n3. Use this caption\n4. Show your post for FREE SLICE!`);
-      });
-
-    } catch (error) {
-      console.error('Error with Instagram sharing:', error);
-      // Final fallback - just open Instagram
-      const instagramWebUrl = 'https://www.instagram.com/';
-      window.open(instagramWebUrl, '_blank');
-      alert('Instagram opened! Create a post about your pizza personality result and show it for a FREE SLICE at Andrea\'s Pizza!');
+      await navigator.clipboard.writeText(postText);
+      
+      // Open Instagram in new tab
+      window.open('https://www.instagram.com/', '_blank');
+      
+      // Show simple success message
+      alert('📱 Instagram caption copied and Instagram opened!\n\n1. Create a new post on Instagram\n2. Take a photo of your pizza choice\n3. Paste the copied caption\n4. Show your post at Andrea\'s Pizza for FREE SLICE!');
+      
+    } catch (clipboardError) {
+      // If clipboard fails, still open Instagram but show the text
+      window.open('https://www.instagram.com/', '_blank');
+      
+      alert(`📱 Instagram opened!\n\nCopy this caption for your post:\n\n${postText}\n\n1. Create a new post on Instagram\n2. Take a photo of your pizza choice\n3. Use this caption\n4. Show your post for FREE SLICE!`);
     }
   };
 
