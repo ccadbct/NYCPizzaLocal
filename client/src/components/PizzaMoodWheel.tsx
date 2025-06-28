@@ -363,14 +363,14 @@ export default function PizzaMoodWheel() {
     await imagePromise;
 
     // Free slice offer section (adjusted for food image)
-    const offerY = height - (format === 'facebook' ? 120 : 140);
+    const offerY = height - (format === 'facebook' ? 140 : 160);
     
     // Offer background
     const offerBox = {
       x: width * 0.05,
-      y: offerY - 50,
+      y: offerY - 60,
       width: width * 0.9,
-      height: format === 'facebook' ? 90 : 120
+      height: format === 'facebook' ? 110 : 140
     };
     
     ctx.fillStyle = 'rgba(244, 232, 208, 0.9)';
@@ -381,25 +381,24 @@ export default function PizzaMoodWheel() {
     
     // Offer text
     ctx.fillStyle = '#c4362e';
-    ctx.font = 'bold 28px Arial, sans-serif';
-    ctx.fillText('🍕 FREE SLICE OFFER! 🍕', width / 2, offerY - 10);
+    ctx.font = 'bold 26px Arial, sans-serif';
+    ctx.fillText('🍕 FREE SLICE OFFER! 🍕', width / 2, offerY - 20);
     
     ctx.fillStyle = '#2d5a3d';
-    ctx.font = 'bold 16px Arial, sans-serif';
+    ctx.font = 'bold 15px Arial, sans-serif';
     if (format === 'facebook') {
-      ctx.fillText('Post this & show your post at Andrea\'s Pizza for FREE SLICE!', width / 2, offerY + 20);
+      ctx.fillText('Post this & show your post at', width / 2, offerY + 10);
+      ctx.fillText('Andrea\'s Pizza for FREE SLICE!', width / 2, offerY + 30);
     } else {
-      ctx.fillText('Show your social media post at', width / 2, offerY + 15);
-      ctx.fillText('Andrea\'s Pizza for FREE SLICE!', width / 2, offerY + 35);
+      ctx.fillText('Show your social media post at', width / 2, offerY + 10);
+      ctx.fillText('Andrea\'s Pizza for FREE SLICE!', width / 2, offerY + 30);
     }
     
     // Restaurant info
     ctx.fillStyle = '#333';
-    ctx.font = 'normal 16px Arial, sans-serif';
-    ctx.fillText('📍 50 2nd Ave, NYC • (646) 398-8386', width / 2, offerY + 45);
-    if (format === 'instagram') {
-      ctx.fillText('One per customer per day', width / 2, offerY + 65);
-    }
+    ctx.font = 'normal 14px Arial, sans-serif';
+    ctx.fillText('📍 50 2nd Ave, NYC • (646) 398-8386', width / 2, offerY + 55);
+    ctx.fillText('One per customer per day', width / 2, offerY + 75);
 
     // Decorative bottom border
     ctx.fillStyle = '#c4362e';
