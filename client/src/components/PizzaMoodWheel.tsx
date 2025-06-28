@@ -287,11 +287,8 @@ Show this post for your FREE SLICE!
     }
   };
 
-  const shareToInstagram = async () => {
+  const shareToInstagram = () => {
     if (!result) return;
-
-    const imageBlob = await generateShareImage('instagram');
-    if (!imageBlob) return;
 
     const postText = `🍕 Just discovered my perfect pizza match @andreaspizza! 
 
@@ -303,17 +300,19 @@ Show this post for your FREE SLICE!
 
 #AndreasPizza #NYCPizza #EastVillage #FreePizza #PizzaMoodWheel #AuthenticItalian #PizzaLover #NYC #FoodieLife`;
 
-    // Download the image and copy caption
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(imageBlob);
-    link.download = 'pizza-result-instagram.png';
-    link.click();
-
     // Copy caption to clipboard
     navigator.clipboard.writeText(postText).then(() => {
-      alert('📱 Instagram image downloaded and caption copied!\n\n1. Upload the downloaded image to Instagram\n2. Paste the copied caption\n3. Show your post at the restaurant for FREE SLICE!');
+      // Try to open Instagram app or website
+      const instagramUrl = 'https://www.instagram.com/';
+      window.open(instagramUrl, '_blank');
+      
+      alert('📱 Instagram caption copied and Instagram opened!\n\n1. Create a new post on Instagram\n2. Add a photo of your pizza choice\n3. Paste the copied caption\n4. Show your post at the restaurant for FREE SLICE!');
     }).catch(() => {
-      alert(`📱 Instagram image downloaded!\n\nCopy this caption:\n\n${postText}\n\n1. Upload the image to Instagram\n2. Use this caption\n3. Show your post for FREE SLICE!`);
+      // Fallback if clipboard fails
+      const instagramUrl = 'https://www.instagram.com/';
+      window.open(instagramUrl, '_blank');
+      
+      alert(`📱 Instagram opened!\n\nCopy this caption:\n\n${postText}\n\n1. Create a new post on Instagram\n2. Add a photo of your pizza choice\n3. Use this caption\n4. Show your post for FREE SLICE!`);
     });
   };
 
@@ -464,11 +463,11 @@ Show this post for your FREE SLICE!
                     </div>
 
                     {/* Social Sharing Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-3 mb-4">
+                    <div className="flex flex-col gap-3 mb-4">
                       {/* Facebook Share Button */}
                       <Button
                         onClick={shareToFacebook}
-                        className="bg-[#1877F2] text-white hover:bg-[#166FE5] px-6 py-2 flex-1"
+                        className="bg-[#1877F2] text-white hover:bg-[#166FE5] px-4 py-2 w-full"
                       >
                         <FaFacebookF className="w-4 h-4 mr-2" />
                         Share on Facebook
@@ -477,7 +476,7 @@ Show this post for your FREE SLICE!
                       {/* Instagram Share Button */}
                       <Button
                         onClick={shareToInstagram}
-                        className="bg-gradient-to-r from-[#E4405F] via-[#F56040] to-[#F77737] text-white hover:from-[#D73A56] hover:via-[#E55A3C] hover:to-[#E66D33] px-6 py-2 flex-1"
+                        className="bg-gradient-to-r from-[#E4405F] via-[#F56040] to-[#F77737] text-white hover:from-[#D73A56] hover:via-[#E55A3C] hover:to-[#E66D33] px-4 py-2 w-full"
                       >
                         <FaInstagram className="w-4 h-4 mr-2" />
                         Share on Instagram
