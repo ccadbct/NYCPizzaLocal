@@ -393,11 +393,7 @@ Show this post for your FREE SLICE!
   const shareToInstagram = async () => {
     if (!result) return;
 
-    try {
-      const imageBlob = await generateShareImage('instagram');
-      if (!imageBlob) return;
-
-      const postText = `🍕 Just discovered my perfect pizza match @andreaspizza! 
+    const postText = `🍕 Just discovered my perfect pizza match @andreaspizza! 
 
 ${result.mood} → ${result.pizza}
 "${result.personality}"
@@ -407,40 +403,56 @@ Show this post for your FREE SLICE!
 
 #AndreasPizza #NYCPizza #EastVillage #FreePizza #PizzaMoodWheel #AuthenticItalian #PizzaLover #NYC #FoodieLife`;
 
-      // Download the custom image
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(imageBlob);
-      link.download = 'andrea-pizza-result-instagram.png';
-      link.click();
+    try {
+      // Try Web Share API first (best on mobile)
+      if (navigator.share) {
+        const imageBlob = await generateShareImage('instagram');
+        if (imageBlob) {
+          try {
+            const file = new File([imageBlob], 'andrea-pizza-result.png', { type: 'image/png' });
+            await navigator.share({
+              title: 'My Pizza Personality - Andrea\'s Pizza',
+              text: postText,
+              files: [file]
+            });
+            return; // Success - exit function
+          } catch (shareError) {
+            console.log('Web Share API with files failed, trying text only');
+            try {
+              await navigator.share({
+                title: 'My Pizza Personality - Andrea\'s Pizza',
+                text: postText,
+                url: window.location.href
+              });
+              return; // Success - exit function
+            } catch (textShareError) {
+              console.log('Web Share API completely failed, using fallback');
+            }
+          }
+        }
+      }
 
-      // Copy caption to clipboard
+      // Fallback approach: Copy text and open Instagram
       navigator.clipboard.writeText(postText).then(() => {
-        // Try to open Instagram app via URL scheme, fallback to website
-        const instagramAppUrl = 'instagram://camera';
-        const instagramWebUrl = 'https://www.instagram.com/';
-        
-        // First try app URL scheme
-        const testLink = document.createElement('a');
-        testLink.href = instagramAppUrl;
-        testLink.click();
-        
-        // Fallback to web after a delay
-        setTimeout(() => {
-          window.open(instagramWebUrl, '_blank');
-        }, 1000);
-        
-        alert('📱 Instagram image downloaded and caption copied!\n\n1. Upload the downloaded image to Instagram\n2. Paste the copied caption\n3. Show your post at Andrea\'s Pizza for FREE SLICE!');
-      }).catch(() => {
-        // Fallback if clipboard fails
+        // Try to open Instagram
         const instagramWebUrl = 'https://www.instagram.com/';
         window.open(instagramWebUrl, '_blank');
         
-        alert(`📱 Instagram image downloaded!\n\nCopy this caption:\n\n${postText}\n\n1. Upload the image to Instagram\n2. Use this caption\n3. Show your post for FREE SLICE!`);
+        alert('📱 Instagram caption copied and Instagram opened!\n\n1. Create a new post on Instagram\n2. Take a photo of your pizza choice\n3. Paste the copied caption\n4. Show your post at Andrea\'s Pizza for FREE SLICE!');
+      }).catch(() => {
+        // Final fallback - just open Instagram
+        const instagramWebUrl = 'https://www.instagram.com/';
+        window.open(instagramWebUrl, '_blank');
+        
+        alert(`📱 Instagram opened!\n\nUse this caption for your post:\n\n${postText}\n\n1. Create a new post on Instagram\n2. Take a photo of your pizza choice\n3. Use this caption\n4. Show your post for FREE SLICE!`);
       });
 
     } catch (error) {
-      console.error('Error generating Instagram share image:', error);
-      alert('Unable to generate share image. Please try again.');
+      console.error('Error with Instagram sharing:', error);
+      // Final fallback - just open Instagram
+      const instagramWebUrl = 'https://www.instagram.com/';
+      window.open(instagramWebUrl, '_blank');
+      alert('Instagram opened! Create a post about your pizza personality result and show it for a FREE SLICE at Andrea\'s Pizza!');
     }
   };
 
