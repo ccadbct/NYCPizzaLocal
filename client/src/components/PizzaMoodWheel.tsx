@@ -307,18 +307,19 @@ export default function PizzaMoodWheel() {
     }
     ctx.fillText(line, width / 2, y);
 
-    // Load and draw food image
-    try {
-      const foodImageUrl = getFoodImageUrl(result.pizza);
-      const foodImage = new Image();
-      foodImage.crossOrigin = 'anonymous';
-      
-      await new Promise((resolve, reject) => {
-        foodImage.onload = () => {
+    // Load and draw food image first, then draw the rest
+    const foodImageUrl = getFoodImageUrl(result.pizza);
+    const foodImage = new Image();
+    foodImage.crossOrigin = 'anonymous';
+    
+    // Create a promise that resolves when image loads or fails
+    const imagePromise = new Promise<boolean>((resolve) => {
+      foodImage.onload = () => {
+        try {
           // Calculate image position in the empty space
-          const imageSize = format === 'facebook' ? 200 : 280;
+          const imageSize = format === 'facebook' ? 180 : 250;
           const imageX = (width - imageSize) / 2;
-          const imageY = y + 40; // Below description text
+          const imageY = y + 30; // Below description text
           
           // Create circular clipping path
           ctx.save();
@@ -338,16 +339,28 @@ export default function PizzaMoodWheel() {
           ctx.stroke();
           
           resolve(true);
-        };
-        foodImage.onerror = () => {
-          console.log('Failed to load food image, continuing without it');
+        } catch (error) {
+          console.log('Error drawing food image:', error);
           resolve(false);
-        };
-        foodImage.src = foodImageUrl;
-      });
-    } catch (error) {
-      console.log('Error loading food image:', error);
-    }
+        }
+      };
+      
+      foodImage.onerror = () => {
+        console.log('Failed to load food image, continuing without it');
+        resolve(false);
+      };
+      
+      // Set a timeout in case image takes too long
+      setTimeout(() => {
+        console.log('Food image load timeout, continuing without it');
+        resolve(false);
+      }, 5000);
+      
+      foodImage.src = foodImageUrl;
+    });
+
+    // Wait for image to load before continuing
+    await imagePromise;
 
     // Free slice offer section (adjusted for food image)
     const offerY = height - (format === 'facebook' ? 120 : 140);
