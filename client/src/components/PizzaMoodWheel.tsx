@@ -354,7 +354,7 @@ export default function PizzaMoodWheel() {
         URL.revokeObjectURL(link.href);
       }, 100);
 
-      alert('📱 Image saved to your device!\n\n1. Open Facebook and create a new post\n2. Upload the downloaded image\n3. Add your own caption or tags\n4. Show your post at Andrea\'s Pizza for FREE SLICE!\n\n📍 50 2nd Ave, NYC • One per customer per day');
+      alert('📱 Image downloaded!\n\nTo save to Photos:\n1. Open your Downloads folder\n2. Tap the image file\n3. Tap the Share button\n4. Select "Save to Photos"\n\nThen post to Facebook for your FREE SLICE!\n📍 50 2nd Ave, NYC • One per customer per day');
 
     } catch (error) {
       console.error('Error generating Facebook image:', error);
@@ -383,7 +383,7 @@ export default function PizzaMoodWheel() {
         URL.revokeObjectURL(link.href);
       }, 100);
 
-      alert('📱 Image saved to your device!\n\n1. Open Instagram and create a new post\n2. Upload the downloaded image\n3. Add your own caption or tags\n4. Show your post at Andrea\'s Pizza for FREE SLICE!\n\n📍 50 2nd Ave, NYC • One per customer per day');
+      alert('📱 Image downloaded!\n\nTo save to Photos:\n1. Open your Downloads folder\n2. Tap the image file\n3. Tap the Share button\n4. Select "Save to Photos"\n\nThen post to Instagram for your FREE SLICE!\n📍 50 2nd Ave, NYC • One per customer per day');
 
     } catch (error) {
       console.error('Error generating image:', error);
