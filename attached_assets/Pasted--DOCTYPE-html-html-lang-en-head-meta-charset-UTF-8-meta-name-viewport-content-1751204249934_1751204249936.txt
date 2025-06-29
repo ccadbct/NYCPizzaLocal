@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Personality Result - Exciting Design</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .result-card {
+            width: 400px;
+            height: 500px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 25%, #ff6b9d 50%, #c44569 75%, #f8b500 100%);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: celebrate 2s ease-in-out;
+        }
+
+        @keyframes celebrate {
+            0% { transform: scale(0.8) rotate(-5deg); opacity: 0; }
+            50% { transform: scale(1.05) rotate(2deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffeb3b;
+            animation: fall 3s linear infinite;
+        }
+
+        .confetti:nth-child(1) { left: 10%; animation-delay: 0s; background: #ff5722; }
+        .confetti:nth-child(2) { left: 20%; animation-delay: 0.5s; background: #4caf50; }
+        .confetti:nth-child(3) { left: 30%; animation-delay: 1s; background: #2196f3; }
+        .confetti:nth-child(4) { left: 40%; animation-delay: 1.5s; background: #ff9800; }
+        .confetti:nth-child(5) { left: 50%; animation-delay: 2s; background: #e91e63; }
+        .confetti:nth-child(6) { left: 60%; animation-delay: 0.3s; background: #9c27b0; }
+        .confetti:nth-child(7) { left: 70%; animation-delay: 0.8s; background: #00bcd4; }
+        .confetti:nth-child(8) { left: 80%; animation-delay: 1.3s; background: #ffeb3b; }
+        .confetti:nth-child(9) { left: 90%; animation-delay: 1.8s; background: #ff5722; }
+
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(500px) rotate(720deg); opacity: 0; }
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px 15px 10px;
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .personality-section {
+            text-align: center;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .personality-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+        }
+
+        .personality-type {
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            margin-bottom: 8px;
+            animation: bounce 1s ease-in-out 0.5s both;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(20px); opacity: 0; }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .pizza-result {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff200;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .personality-quote {
+            font-size: 13px;
+            font-style: italic;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 12px;
+            border-radius: 15px;
+            margin: 10px 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.3);
+            text-align: center;
+        }
+
+        .pizza-image {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .pizza-emoji {
+            font-size: 60px;
+            animation: spin 2s ease-in-out 1s both;
+            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg) scale(0.5); opacity: 0; }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); opacity: 1; }
+        }
+
+        .offer-banner {
+            background: linear-gradient(45deg, #2d5a3d, #27ae60);
+            margin: 10px 15px 15px;
+            padding: 15px 12px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+        }
+
+        .offer-title {
+            color: #fff200;
+            font-size: 15px;
+            font-weight: 900;
+            margin-bottom: 6px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .offer-text {
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #fff200;
+            font-size: 20px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .sparkle:nth-child(10) { top: 10%; left: 15%; animation-delay: 0s; }
+        .sparkle:nth-child(11) { top: 20%; right: 10%; animation-delay: 0.5s; }
+        .sparkle:nth-child(12) { bottom: 25%; left: 10%; animation-delay: 1s; }
+        .sparkle:nth-child(13) { bottom: 15%; right: 15%; animation-delay: 1.5s; }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(180deg); }
+        }
+
+        .floating-pizza {
+            position: absolute;
+            font-size: 25px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-pizza:nth-child(14) { top: 30%; left: 5%; animation-delay: 0s; }
+        .floating-pizza:nth-child(15) { top: 60%; right: 5%; animation-delay: 2s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="result-card">
+        <!-- Confetti Animation -->
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+
+        <!-- Sparkles -->
+        <div class="sparkle">✨</div>
+        <div class="sparkle">⭐</div>
+        <div class="sparkle">✨</div>
+        <div class="sparkle">⭐</div>
+
+        <!-- Floating Pizza -->
+        <div class="floating-pizza">🍕</div>
+        <div class="floating-pizza">🍕</div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-text">Andrea's Pizza</div>
+            <div class="subtitle">East Village • Authentic Italian</div>
+        </div>
+
+        <!-- Personality Result -->
+        <div class="personality-section">
+            <div class="personality-label">🎯 My Pizza Personality:</div>
+            <div class="personality-type">GO BIG</div>
+            <div class="pizza-result">🥟 Calzone</div>
+        </div>
+
+        <!-- Personality Quote -->
+        <div class="personality-quote">
+            "You don't do anything halfway"
+        </div>
+
+        <!-- Pizza Visual -->
+        <div class="pizza-image">
+            <div class="pizza-emoji">🥟</div>
+        </div>
+
+        <!-- Offer Banner -->
+        <div class="offer-banner">
+            <div class="offer-title">🍕 FREE SLICE OFFER! 🍕</div>
+            <div class="offer-text">
+                Show your social media post at Andrea's Pizza<br>
+                📍 50 2nd Ave, NYC • (646) 398-8386<br>
+                One per customer per day
+            </div>
+        </div>
+    </div>
+</body>
+</html>
