@@ -107,6 +107,7 @@ The application is designed for deployment on platforms like Replit, Vercel, or 
 ## Changelog
 
 Changelog:
+- June 29, 2025. Added multi-page architecture with dedicated pages for menu, about, contact, and pizza wheel functionality
 - June 28, 2025. Initial setup
 
 ## User Preferences

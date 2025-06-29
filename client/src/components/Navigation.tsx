@@ -2,23 +2,18 @@ import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AndreasPizzaLogo } from "@/components/ui/logo";
+import { Link, useLocation } from "wouter";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
-  };
+  const [location] = useLocation();
 
   const navLinks = [
-    { label: "Home", href: "home" },
-    { label: "Menu", href: "menu" },
-    { label: "About", href: "about" },
-    { label: "Contact", href: "contact" },
+    { label: "Home", href: "/" },
+    { label: "Menu", href: "/menu" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "Pizza Wheel", href: "/pizza-wheel" },
   ];
 
   return (
@@ -26,22 +21,25 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <AndreasPizzaLogo className="cursor-pointer" onClick={() => scrollToSection("home")} />
+            <Link href="/">
+              <AndreasPizzaLogo className="cursor-pointer" />
+            </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navLinks.map((link) => (
-                <button
+                <Link
                   key={link.href}
-                  onClick={() => scrollToSection(link.href)}
+                  href={link.href}
                   className={`text-gray-600 hover:text-pizza-red transition-colors px-3 py-2 text-sm font-medium ${
-                    link.label === "Home" ? "text-gray-900" : ""
+                    location === link.href ? "text-pizza-red font-semibold" : ""
                   }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
               <Button
                 onClick={() => window.open("tel:6463988386")}
@@ -72,13 +70,16 @@ export default function Navigation() {
         <div className="md:hidden bg-white border-t">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navLinks.map((link) => (
-              <button
+              <Link
                 key={link.href}
-                onClick={() => scrollToSection(link.href)}
-                className="block w-full text-left px-3 py-2 text-gray-600 hover:text-pizza-red"
+                href={link.href}
+                className={`block px-3 py-2 text-gray-600 hover:text-pizza-red ${
+                  location === link.href ? "text-pizza-red font-semibold" : ""
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
             <Button
               onClick={() => window.open("tel:6463988386")}
