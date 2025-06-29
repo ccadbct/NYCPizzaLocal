@@ -61,6 +61,11 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
+        // Andrea's Pizza custom colors
+        "pizza-green": "var(--pizza-green)",
+        "pizza-red": "var(--pizza-red)",
+        "warm-cream": "var(--warm-cream)",
+        "cream": "var(--warm-cream)",
       },
       keyframes: {
         "accordion-down": {
