@@ -181,18 +181,26 @@ export default function PizzaMoodWheel() {
     canvas.width = width;
     canvas.height = height;
 
-    // Background gradient
-    const gradient = ctx.createLinearGradient(0, 0, 0, height);
-    gradient.addColorStop(0, '#f4e8d0');  // warm cream
-    gradient.addColorStop(1, '#e6d7c0');  // slightly darker cream
+    // Vibrant gradient background matching the result card
+    const gradient = ctx.createLinearGradient(0, 0, width, height);
+    gradient.addColorStop(0, '#ef4444');    // red-400
+    gradient.addColorStop(0.25, '#fb923c');  // orange-400
+    gradient.addColorStop(0.5, '#ec4899');   // pink-400
+    gradient.addColorStop(0.75, '#8b5cf6');  // purple-600
+    gradient.addColorStop(1, '#eab308');     // yellow-400
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
-    // Decorative top border with pattern
-    ctx.fillStyle = '#2d5a3d';
-    ctx.fillRect(0, 0, width, 30);
-    ctx.fillStyle = '#c4362e';
-    ctx.fillRect(0, 30, width, 10);
+    // Add confetti-like decorative elements
+    ctx.fillStyle = '#fff';
+    for (let i = 0; i < 15; i++) {
+      const x = Math.random() * width;
+      const y = Math.random() * height;
+      const size = Math.random() * 4 + 2;
+      ctx.beginPath();
+      ctx.arc(x, y, size, 0, Math.PI * 2);
+      ctx.fill();
+    }
 
     // Pizza slice graphics as decorative elements
     const drawPizzaSlice = (x: number, y: number, size: number) => {
@@ -231,36 +239,48 @@ export default function PizzaMoodWheel() {
       drawPizzaSlice(width - 80, height - 80, 30);
     }
 
-    // Logo area
-    ctx.fillStyle = '#2d5a3d';
+    // Logo area with white text and drop shadow
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 4;
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
+    ctx.fillStyle = '#fff';
     ctx.font = 'bold 52px Georgia, serif';
     ctx.textAlign = 'center';
     ctx.fillText("Andrea's Pizza", width / 2, format === 'facebook' ? 90 : 110);
     
     // Subtitle with styling
-    ctx.fillStyle = '#666';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
     ctx.font = 'italic 22px Georgia, serif';
     ctx.fillText("East Village • Authentic Italian", width / 2, format === 'facebook' ? 120 : 140);
+    
+    // Reset shadow for other elements
+    ctx.shadowColor = 'transparent';
 
     // Main content positioning
     const startY = format === 'facebook' ? 180 : 220;
     
-    // Mood section with styling
-    ctx.fillStyle = '#2d5a3d';
-    ctx.font = 'normal 24px Arial, sans-serif';
-    ctx.fillText("My Pizza Personality:", width / 2, startY);
+    // Mood section with white text and shadows
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 2;
+    ctx.shadowOffsetX = 1;
+    ctx.shadowOffsetY = 1;
     
-    ctx.fillStyle = '#c4362e';
+    ctx.fillStyle = '#fff';
+    ctx.font = 'normal 24px Arial, sans-serif';
+    ctx.fillText("🎯 My Pizza Personality:", width / 2, startY);
+    
+    ctx.fillStyle = '#fff';
     ctx.font = 'bold 38px Arial, sans-serif';
-    ctx.fillText(result.mood, width / 2, startY + 50);
+    ctx.fillText(result.mood.toUpperCase(), width / 2, startY + 50);
     
     // Stylized arrow
-    ctx.fillStyle = '#2d5a3d';
+    ctx.fillStyle = '#fff';
     ctx.font = 'bold 36px Arial, sans-serif';
     ctx.fillText('↓', width / 2, startY + 90);
     
     // Pizza recommendation with emoji
-    ctx.fillStyle = '#2d5a3d';
+    ctx.fillStyle = '#ffeb3b'; // yellow for pizza text
     ctx.font = 'bold 42px Arial, sans-serif';
     ctx.fillText('🍕 ' + result.pizza, width / 2, startY + 140);
     
@@ -273,15 +293,15 @@ export default function PizzaMoodWheel() {
       height: 60
     };
     
-    // Quote background
-    ctx.fillStyle = 'rgba(196, 54, 46, 0.1)';
+    // Quote background with rounded corners effect
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
     ctx.fillRect(quoteBox.x, quoteBox.y, quoteBox.width, quoteBox.height);
-    ctx.strokeStyle = '#c4362e';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
     ctx.lineWidth = 2;
     ctx.strokeRect(quoteBox.x, quoteBox.y, quoteBox.width, quoteBox.height);
     
     // Quote text
-    ctx.fillStyle = '#c4362e';
+    ctx.fillStyle = '#fff';
     ctx.font = 'italic bold 26px Georgia, serif';
     ctx.fillText(`"${result.personality}"`, width / 2, quoteY);
 
