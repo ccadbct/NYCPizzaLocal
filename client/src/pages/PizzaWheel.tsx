@@ -66,23 +66,66 @@ export default function PizzaWheel() {
     <div className="min-h-screen bg-cream">
       <Navigation />
       
-      <main className="pt-20">
+      <main className="pt-0">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-pizza-green to-pizza-red text-white py-16">
-          <div className="container mx-auto px-4 text-center">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Sparkles className="w-8 h-8" />
-              <h1 className="text-5xl font-bold">Pizza Mood Wheel</h1>
-              <Sparkles className="w-8 h-8" />
+        <section className="relative min-h-screen overflow-hidden">
+          {/* Animated Background */}
+          <div className="absolute inset-0 animated-pizza-bg">
+            <div className="absolute inset-0 bg-gradient-to-br from-pizza-red via-orange-500 to-pizza-green"></div>
+            <div className="absolute inset-0 bg-gradient-to-tl from-purple-600/20 via-transparent to-yellow-400/20"></div>
+            
+            {/* Floating Pizza Elements */}
+            <div className="floating-pizza pizza-1">🍕</div>
+            <div className="floating-pizza pizza-2">🍕</div>
+            <div className="floating-pizza pizza-3">🍕</div>
+            <div className="floating-pizza pizza-4">🍕</div>
+            <div className="floating-pizza pizza-5">🍕</div>
+            
+            {/* Animated Particles */}
+            <div className="particles">
+              <div className="particle particle-1"></div>
+              <div className="particle particle-2"></div>
+              <div className="particle particle-3"></div>
+              <div className="particle particle-4"></div>
+              <div className="particle particle-5"></div>
+              <div className="particle particle-6"></div>
+              <div className="particle particle-7"></div>
+              <div className="particle particle-8"></div>
             </div>
-            <p className="text-xl max-w-2xl mx-auto mb-6">
-              Discover your perfect pizza match based on your current mood! Our interactive wheel will reveal 
-              your pizza personality and recommend the ideal slice from our authentic Italian menu.
-            </p>
-            <Badge className="bg-white text-pizza-red text-lg px-4 py-2">
-              <Gift className="w-4 h-4 mr-2" />
-              Share for a FREE SLICE!
-            </Badge>
+            
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-black/20"></div>
+          </div>
+          
+          {/* Content */}
+          <div className="relative z-10 flex items-center justify-center min-h-screen text-white">
+            <div className="container mx-auto px-4 text-center pt-20">
+              <div className="flex items-center justify-center gap-3 mb-6 animate-bounce">
+                <Sparkles className="w-12 h-12 animate-pulse" />
+                <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-white to-yellow-200 bg-clip-text text-transparent drop-shadow-2xl">
+                  Pizza Mood Wheel
+                </h1>
+                <Sparkles className="w-12 h-12 animate-pulse" />
+              </div>
+              <p className="text-2xl max-w-3xl mx-auto mb-8 drop-shadow-lg leading-relaxed">
+                Discover your perfect pizza match based on your current mood! Our interactive wheel will reveal 
+                your pizza personality and recommend the ideal slice from our authentic Italian menu.
+              </p>
+              <div className="animate-pulse">
+                <Badge className="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white text-xl px-6 py-3 hover:bg-white/30 transition-all duration-300 transform hover:scale-105">
+                  <Gift className="w-5 h-5 mr-3" />
+                  Share for a FREE SLICE!
+                </Badge>
+              </div>
+              
+              {/* Scroll indicator */}
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+                  <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+                </div>
+                <p className="text-white/70 text-sm mt-2">Scroll to explore</p>
+              </div>
+            </div>
           </div>
         </section>
 

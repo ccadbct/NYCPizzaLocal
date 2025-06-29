@@ -16,8 +16,22 @@ export default function Navigation() {
     { label: "Pizza Wheel", href: "/pizza-wheel" },
   ];
 
+  // Special styling for Pizza Wheel page
+  const isPizzaWheelPage = location === "/pizza-wheel";
+  const navClass = isPizzaWheelPage 
+    ? "bg-black/20 backdrop-blur-md border-b border-white/20 sticky top-0 z-50" 
+    : "bg-white shadow-sm sticky top-0 z-50";
+  
+  const linkTextClass = isPizzaWheelPage 
+    ? "text-white/90 hover:text-white" 
+    : "text-gray-600 hover:text-pizza-red";
+  
+  const activeLinkClass = isPizzaWheelPage 
+    ? "text-white font-semibold" 
+    : "text-pizza-red font-semibold";
+
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav className={navClass}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -33,8 +47,8 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-gray-600 hover:text-pizza-red transition-colors px-3 py-2 text-sm font-medium ${
-                    location === link.href ? "text-pizza-red font-semibold" : ""
+                  className={`${linkTextClass} transition-colors px-3 py-2 text-sm font-medium ${
+                    location === link.href ? activeLinkClass : ""
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -43,7 +57,10 @@ export default function Navigation() {
               ))}
               <Button
                 onClick={() => window.open("tel:6463988386")}
-                className="bg-pizza-red text-white hover:bg-red-700"
+                className={isPizzaWheelPage 
+                  ? "bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30" 
+                  : "bg-pizza-red text-white hover:bg-red-700"
+                }
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Order Now
@@ -57,7 +74,7 @@ export default function Navigation() {
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-600 hover:text-pizza-red"
+              className={isPizzaWheelPage ? "text-white hover:text-white/80" : "text-gray-600 hover:text-pizza-red"}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
@@ -67,14 +84,14 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className={`md:hidden ${isPizzaWheelPage ? "bg-black/30 backdrop-blur-md border-t border-white/20" : "bg-white border-t"}`}>
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block px-3 py-2 text-gray-600 hover:text-pizza-red ${
-                  location === link.href ? "text-pizza-red font-semibold" : ""
+                className={`block px-3 py-2 ${linkTextClass} ${
+                  location === link.href ? activeLinkClass : ""
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -83,7 +100,10 @@ export default function Navigation() {
             ))}
             <Button
               onClick={() => window.open("tel:6463988386")}
-              className="w-full mt-4 bg-pizza-red text-white hover:bg-red-700"
+              className={`w-full mt-4 ${isPizzaWheelPage 
+                ? "bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30" 
+                : "bg-pizza-red text-white hover:bg-red-700"
+              }`}
             >
               <Phone className="w-4 h-4 mr-2" />
               Order Now
