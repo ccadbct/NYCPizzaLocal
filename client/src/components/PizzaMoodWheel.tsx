@@ -43,7 +43,7 @@ export default function PizzaMoodWheel() {
     },
     {
       id: 3,
-      mood: "Want Fresh",
+      mood: "Feeling Fancy",
       pizza: "Margherita Pizza",
       description: "Fresh mozzarella, basil, and organic tomatoes",
       color: "#22c55e" // green
@@ -57,7 +57,7 @@ export default function PizzaMoodWheel() {
     },
     {
       id: 5,
-      mood: "Feeling Fancy",
+      mood: "Want Traditional",
       pizza: "Grandma Pie",
       description: "Thin crust with garlic, olive oil, and fresh herbs",
       color: "#06b6d4" // cyan
@@ -88,9 +88,9 @@ export default function PizzaMoodWheel() {
   const personalityDescriptions = {
     "Feeling Classic": "You appreciate timeless perfection",
     "Need Comfort": "You know what makes you happy",
-    "Want Fresh": "You crave authentic simplicity",
+    "Feeling Fancy": "You have refined taste",
     "Craving Tradition": "You respect the old ways",
-    "Feeling Fancy": "You have sophisticated taste",
+    "Want Traditional": "You have sophisticated taste",
     "Want Adventure": "You live life boldly",
     "Keep It Simple": "You find beauty in basics",
     "Go Big": "You don't do anything halfway"
@@ -568,7 +568,9 @@ export default function PizzaMoodWheel() {
                     {isSpinning ? (
                       <RotateCw className="w-4 h-4 animate-spin" />
                     ) : (
-                      'Surprise Me!'
+                      <span className="text-center leading-tight">
+                        SURPRISE<br />ME!
+                      </span>
                     )}
                   </Button>
                 </div>
