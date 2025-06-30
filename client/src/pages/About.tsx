@@ -83,27 +83,27 @@ export default function About() {
                     <Badge className="bg-pizza-red text-white mb-4">Executive Chef</Badge>
                     <h2 className="text-4xl font-bold text-pizza-green mb-4">Chef Andrea Kenuti</h2>
                     <p className="text-xl text-gray-600">
-                      Master of Authentic Italian Pizza Traditions
+                      Scarr's & L'Industrie Veteran | East Village's Newest Pizzaiolo
                     </p>
                   </div>
                   
                   <div className="space-y-4 text-gray-700">
                     <p>
-                      Chef Andrea Kenuti brings over 15 years of authentic Italian culinary expertise to East Village. 
-                      Born in Naples, the birthplace of pizza, Andrea learned traditional pizza-making techniques from 
-                      his nonna in the family kitchen before honing his craft at renowned establishments.
+                      Chef Andrea Kenuti brings proven expertise from two of NYC's most celebrated pizzerias to East Village. 
+                      After seven years perfecting his craft at the legendary <strong>Scarr's Pizza</strong> on Orchard Street 
+                      and gaining valuable experience at <strong>L'Industrie</strong> in the West Village, Andrea is ready for his first solo venture.
                     </p>
                     
                     <p>
-                      After moving to New York City, Andrea distinguished himself at two of the city's most celebrated 
-                      pizzerias: <strong>Scarr's Pizza</strong> on the Lower East Side and <strong>L'Industrie Pizzeria </strong> 
-                      in Williamsburg. At these iconic establishments, he perfected his understanding of New York's 
-                      pizza culture while maintaining his commitment to authentic Italian methods.
+                      At these renowned establishments, Andrea mastered both traditional Italian techniques and New York's 
+                      distinctive pizza culture. His commitment to organic, carefully sourced ingredients and authentic 
+                      methods sets the foundation for Andrea's Pizza's classic vibe.
                     </p>
                     
                     <p>
-                      "Every pizza tells a story," says Chef Andrea. "At Andrea's Pizza, we honor both the traditional 
-                      Neapolitan techniques I learned as a child and the bold innovations that make New York pizza special."
+                      "I just want to get the place open as soon as possible, and I'm going to be here every day," 
+                      says Chef Andrea. "We're focused on creating authentic pizza with the highest quality ingredients 
+                      while maintaining that classic neighborhood pizzeria feeling that East Village deserves."
                     </p>
                   </div>
                 </div>
@@ -116,11 +116,11 @@ export default function About() {
                         <h3 className="font-semibold text-pizza-green">Experience</h3>
                       </div>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• 15+ years in authentic Italian cuisine</li>
-                        <li>• Former chef at Scarr's Pizza (Lower East Side)</li>
-                        <li>• Former chef at L'Industrie Pizzeria (Williamsburg)</li>
-                        <li>• Trained in traditional Neapolitan techniques</li>
-                        <li>• Specialized in sourdough starter cultivation</li>
+                        <li>• 7 years perfecting craft at Scarr's Pizza (Orchard Street)</li>
+                        <li>• Valuable experience at L'Industrie (West Village)</li>
+                        <li>• Expert in traditional Italian pizza techniques</li>
+                        <li>• First solo venture in East Village</li>
+                        <li>• Committed to organic, carefully sourced ingredients</li>
                       </ul>
                     </CardContent>
                   </Card>
@@ -132,9 +132,10 @@ export default function About() {
                         <h3 className="font-semibold text-pizza-green">Philosophy</h3>
                       </div>
                       <p className="text-gray-700">
-                        "Pizza is not just food—it's culture, family, and love baked into every bite. 
-                        We use only the finest San Marzano tomatoes, imported mozzarella di bufala, 
-                        and our signature 72-hour fermented dough to create an authentic taste of Italy."
+                        "Great pizza comes from quality ingredients and proven techniques. We focus on 
+                        organic tomatoes, fresh mozzarella, and traditional methods learned from NYC's 
+                        best pizzerias. Every day we're here working to serve authentic pizza that 
+                        honors both Italian tradition and New York's pizza culture."
                       </p>
                     </CardContent>
                   </Card>
@@ -169,10 +170,10 @@ export default function About() {
                     <div className="w-16 h-16 bg-pizza-red rounded-full flex items-center justify-center mx-auto mb-4">
                       <Clock className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="font-semibold text-pizza-green mb-2">Time-Honored Tradition</h3>
+                    <h3 className="font-semibold text-pizza-green mb-2">Authentic Techniques</h3>
                     <p className="text-gray-600">
-                      Our dough ferments for 72 hours, creating the perfect texture and flavor that 
-                      honors centuries of Italian pizza-making tradition.
+                      Using traditional Italian methods learned at NYC's most respected pizzerias, 
+                      we create authentic pizza with organic ingredients and proven techniques.
                     </p>
                   </CardContent>
                 </Card>
@@ -182,10 +183,10 @@ export default function About() {
                     <div className="w-16 h-16 bg-pizza-green rounded-full flex items-center justify-center mx-auto mb-4">
                       <Heart className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="font-semibold text-pizza-green mb-2">Family Values</h3>
+                    <h3 className="font-semibold text-pizza-green mb-2">Community Focus</h3>
                     <p className="text-gray-600">
-                      Every pizza is made with the same love and care that Andrea learned in his 
-                      family kitchen, creating memories one slice at a time.
+                      Every pizza is made with dedication and care, using organic ingredients and 
+                      traditional techniques to serve our East Village neighbors.
                     </p>
                   </CardContent>
                 </Card>
@@ -193,24 +194,24 @@ export default function About() {
               
               <div className="text-left max-w-3xl mx-auto space-y-6 text-gray-700">
                 <p className="text-lg">
-                  When Chef Andrea decided to open his own pizzeria, he knew exactly what he wanted to create: 
-                  a place where authentic Italian tradition meets the energy and diversity of New York City. 
-                  After years of perfecting his craft at some of NYC's most beloved pizza spots, he found the 
-                  perfect location at 50 2nd Avenue in East Village.
+                  After seven years at Scarr's Pizza and valuable experience at L'Industrie, Chef Andrea knew 
+                  exactly what he wanted to create for his first solo venture: an authentic neighborhood pizzeria 
+                  that honors both Italian tradition and New York's pizza culture. He found the perfect location 
+                  at 50 2nd Avenue in East Village.
                 </p>
                 
                 <p className="text-lg">
-                  Andrea's Pizza opened with a simple mission: to bring the authentic taste of Naples to New York 
-                  while honoring the local community that embraces both tradition and innovation. Every ingredient 
-                  is carefully sourced, from the San Marzano tomatoes grown in volcanic soil to the mozzarella 
-                  di bufala imported weekly from Campania.
+                  Andrea's Pizza opened with a focused mission: serve authentic pizza using organic, carefully 
+                  sourced ingredients and traditional techniques learned from NYC's most respected pizzerias. 
+                  The classic vibe reflects Andrea's commitment to quality without pretension—just great pizza 
+                  made the right way.
                 </p>
                 
                 <p className="text-lg">
-                  Today, Andrea's Pizza stands as a testament to the power of authentic craftsmanship in a fast-paced 
-                  world. Whether you're a longtime East Village resident or a visitor discovering our neighborhood 
-                  for the first time, we invite you to experience the passion and tradition that goes into every 
-                  pizza we create.
+                  Today, Andrea's Pizza serves the East Village community with dedication and consistency. 
+                  Whether you're a longtime neighborhood resident or discovering our slice for the first time, 
+                  we're here every day working to provide authentic pizza that respects both tradition and 
+                  our local community.
                 </p>
               </div>
             </div>
