@@ -48,20 +48,20 @@ export default function Contact() {
         {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-          "opens": "11:00",
-          "closes": "22:00"
+          "opens": "12:00",
+          "closes": "24:00"
         },
         {
           "@type": "OpeningHoursSpecification", 
           "dayOfWeek": ["Friday", "Saturday"],
-          "opens": "11:00",
-          "closes": "23:00"
+          "opens": "12:00",
+          "closes": "02:00"
         },
         {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": "Sunday",
-          "opens": "12:00", 
-          "closes": "21:00"
+          "opens": "12:00",
+          "closes": "23:00"
         }
       ],
       "aggregateRating": {
@@ -85,9 +85,9 @@ export default function Contact() {
   }, []);
 
   const hours = [
-    { day: 'Monday - Thursday', time: '11:00 AM - 10:00 PM' },
-    { day: 'Friday - Saturday', time: '11:00 AM - 11:00 PM' },
-    { day: 'Sunday', time: '12:00 PM - 9:00 PM' }
+    { day: 'Monday - Thursday', time: '12:00 PM - 12:00 AM' },
+    { day: 'Friday - Saturday', time: '12:00 PM - 2:00 AM' },
+    { day: 'Sunday', time: '12:00 PM - 11:00 PM' }
   ];
 
   return (
