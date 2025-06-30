@@ -138,6 +138,9 @@ const menuData: MenuItem[] = [
 
 export default function Menu() {
   useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+    
     document.title = "Menu - Andrea's Pizza | Authentic Italian Pizza in East Village NYC";
     
     // Enhanced meta description with Chef credentials and call-to-action
