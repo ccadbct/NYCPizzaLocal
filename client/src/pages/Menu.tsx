@@ -61,6 +61,7 @@ const menuData: MenuItem[] = [
     id: 5,
     name: "Sicilian Classic",
     description: "Organic tomatoes, mozzarella, basil",
+    slicePrice: "$5.00",
     price: "$33.00",
     category: "sicilian"
   },
@@ -68,6 +69,7 @@ const menuData: MenuItem[] = [
     id: 6,
     name: "Sicilian Pepperoni",
     description: "Organic tomatoes, mozzarella, beef pepperoni, basil",
+    slicePrice: "$6.00",
     price: "$38.00",
     category: "sicilian"
   },
@@ -75,6 +77,7 @@ const menuData: MenuItem[] = [
     id: 7,
     name: "Grandma",
     description: "Organic tomatoes, fresh mozzarella, fresh garlic, basil",
+    slicePrice: "$6.00",
     price: "$38.00",
     category: "sicilian"
   },
