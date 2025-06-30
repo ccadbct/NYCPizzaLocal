@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
+import { Link } from "wouter";
 
 interface ClassicPizza {
   id: number;
@@ -146,10 +147,12 @@ export default function MenuPreview() {
         </div>
 
         <div className="text-center">
-          <Button className="bg-pizza-red text-white px-8 py-4 text-lg font-semibold hover:bg-red-700 shadow-lg h-auto">
-            View Full Menu
-            <ExternalLink className="w-5 h-5 ml-2" />
-          </Button>
+          <Link href="/menu">
+            <Button className="bg-pizza-red text-white px-8 py-4 text-lg font-semibold hover:bg-red-700 shadow-lg h-auto">
+              View Full Menu
+              <ExternalLink className="w-5 h-5 ml-2" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
