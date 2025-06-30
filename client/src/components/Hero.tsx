@@ -22,11 +22,11 @@ export default function Hero() {
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">From Andrea Kenuti, veteran of acclaimed NYC pizzerias Scarr's Pizza (7 years) and L'Industrie. Now bringing his mastery of traditional New York slices to 50 Second Avenue with organic, carefully sourced ingredients and that classic vibe you've been craving. Every slice is crafted with the expertise that only comes from years at NYC's most celebrated spots.</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
-                onClick={() => window.open("tel:6463988386")}
+                onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
                 className="bg-pizza-red text-white px-8 py-4 text-lg font-semibold hover:bg-red-700 shadow-lg h-auto"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                Order Now
+                Order Online
               </Button>
               <Button
                 onClick={scrollToMenu}

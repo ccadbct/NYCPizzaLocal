@@ -72,7 +72,10 @@ export default function ContactSection() {
                 online ordering
               </p>
               <p className="text-sm text-gray-500 mb-6">Free delivery over $25</p>
-              <Button className="bg-pizza-green text-white hover:bg-green-700 text-sm">
+              <Button 
+                onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
+                className="bg-pizza-green text-white hover:bg-green-700 text-sm"
+              >
                 <Laptop className="w-4 h-4 mr-2" />
                 Order Online
               </Button>

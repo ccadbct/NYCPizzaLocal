@@ -707,12 +707,12 @@ export default function PizzaMoodWheel() {
 
                 <div className="space-y-3">
                   <Button
-                    onClick={() => window.open("tel:6463988386")}
+                    onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
                     className="w-full bg-pizza-red text-white hover:bg-red-700 py-3 text-base sm:text-lg font-semibold"
                   >
                     <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    <span className="hidden sm:inline">Order Now - (646) 398-8386</span>
-                    <span className="sm:hidden">Call (646) 398-8386</span>
+                    <span className="hidden sm:inline">Order Online</span>
+                    <span className="sm:hidden">Order Online</span>
                   </Button>
                   
                   <Button

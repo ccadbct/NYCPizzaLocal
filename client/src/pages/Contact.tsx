@@ -264,12 +264,11 @@ export default function Contact() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                variant="secondary"
-                onClick={() => window.open('tel:+16463988386')}
+                onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
                 className="bg-white text-pizza-red hover:bg-gray-100"
               >
                 <Phone className="w-4 h-4 mr-2" />
-                Call (646) 398-8386
+                Order Online
               </Button>
               <Button 
                 size="lg"

@@ -56,14 +56,14 @@ export default function Navigation() {
                 </Link>
               ))}
               <Button
-                onClick={() => window.open("tel:6463988386")}
+                onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
                 className={isPizzaWheelPage 
                   ? "bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30" 
                   : "bg-pizza-red text-white hover:bg-red-700"
                 }
               >
                 <Phone className="w-4 h-4 mr-2" />
-                Order Now
+                Order Online
               </Button>
             </div>
           </div>
@@ -99,14 +99,14 @@ export default function Navigation() {
               </Link>
             ))}
             <Button
-              onClick={() => window.open("tel:6463988386")}
+              onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
               className={`w-full mt-4 ${isPizzaWheelPage 
                 ? "bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30" 
                 : "bg-pizza-red text-white hover:bg-red-700"
               }`}
             >
               <Phone className="w-4 h-4 mr-2" />
-              Order Now
+              Order Online
             </Button>
           </div>
         </div>

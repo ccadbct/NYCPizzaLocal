@@ -497,10 +497,10 @@ export default function Menu() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
-                  onClick={() => window.open("tel:6463988386")}
+                  onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
                   className="bg-white text-pizza-green px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                 >
-                  Call Now: (646) 398-8386
+                  Order Online
                 </button>
                 <button
                   onClick={() => window.open('https://maps.google.com/?q=50+2nd+Ave,+New+York,+NY+10003', '_blank')}
