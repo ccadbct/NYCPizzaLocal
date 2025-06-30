@@ -275,7 +275,7 @@ export default function Contact() {
                 size="lg"
                 variant="outline"
                 onClick={() => window.open('https://maps.google.com/?q=50+2nd+Ave,+New+York,+NY+10003', '_blank')}
-                className="border-white text-white hover:bg-white hover:text-pizza-red"
+                className="border-white text-white hover:bg-white hover:text-pizza-green bg-transparent"
               >
                 <MapPin className="w-4 h-4 mr-2" />
                 Get Directions
