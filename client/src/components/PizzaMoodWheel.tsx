@@ -31,57 +31,57 @@ export default function PizzaMoodWheel() {
       id: 1,
       mood: "Feeling Classic",
       pizza: "Classic Cheese Pizza",
-      description: "Simple perfection with organic tomatoes and mozzarella",
+      description: "Simple perfection - $4.00 slice | 12\" $16 | 18\" $22",
       color: "#f59e0b" // amber
     },
     {
       id: 2,
       mood: "Need Comfort",
       pizza: "Pepperoni Pizza",
-      description: "Hearty beef pepperoni on our signature base",
+      description: "NY-style pepperoni perfection - $5.00 slice | 12\" $18 | 18\" $24",
       color: "#ef4444" // red
     },
     {
       id: 3,
       mood: "Feeling Fancy",
       pizza: "Margherita Pizza",
-      description: "Fresh mozzarella, basil, and organic tomatoes",
+      description: "Fresh mozzarella & basil classic - $5.00 slice | 12\" $18 | 18\" $24",
       color: "#22c55e" // green
     },
     {
       id: 4,
-      mood: "Craving Tradition",
-      pizza: "Sicilian Classic",
-      description: "Thick crust square pie with classic toppings",
-      color: "#8b5cf6" // purple
+      mood: "Go Big",
+      pizza: "Calzone",
+      description: "Folded pizza pocket stuffed with ricotta & mozzarella - $18.00",
+      color: "#dc2626" // red-600
     },
     {
       id: 5,
-      mood: "Want Traditional",
-      pizza: "Grandma Pie",
-      description: "Thin crust with garlic, olive oil, and fresh herbs",
-      color: "#06b6d4" // cyan
-    },
-    {
-      id: 6,
       mood: "Want Adventure",
       pizza: "Daily Special",
-      description: "Chef's creative combination of seasonal ingredients",
+      description: "Chef Andrea's creative daily creation - Ask for today's special!",
       color: "#f97316" // orange
     },
     {
+      id: 6,
+      mood: "Craving Tradition",
+      pizza: "Sicilian Classic",
+      description: "Square thick crust perfection - $4.00 slice",
+      color: "#8b5cf6" // purple
+    },
+    {
       id: 7,
-      mood: "Keep It Simple",
-      pizza: "Plain Slice",
-      description: "Pure, unadulterated pizza perfection",
-      color: "#64748b" // slate
+      mood: "Want Something Extra",
+      pizza: "Grandma Pie",
+      description: "Thin crust with garlic & herbs - $4.00 slice",
+      color: "#06b6d4" // cyan
     },
     {
       id: 8,
-      mood: "Go Big",
-      pizza: "Calzone",
-      description: "Folded pizza pocket stuffed with cheese and sauce",
-      color: "#dc2626" // red-600
+      mood: "Keep It Simple",
+      pizza: "Plain Slice",
+      description: "Pure cheese pizza perfection - $4.00",
+      color: "#64748b" // slate
     }
   ];
 
@@ -89,11 +89,11 @@ export default function PizzaMoodWheel() {
     "Feeling Classic": "You appreciate timeless perfection",
     "Need Comfort": "You know what makes you happy",
     "Feeling Fancy": "You have refined taste",
-    "Craving Tradition": "You respect the old ways",
-    "Want Traditional": "You have sophisticated taste",
+    "Go Big": "You don't do anything halfway",
     "Want Adventure": "You live life boldly",
-    "Keep It Simple": "You find beauty in basics",
-    "Go Big": "You don't do anything halfway"
+    "Craving Tradition": "You respect the old ways",
+    "Want Something Extra": "You have sophisticated taste",
+    "Keep It Simple": "You find beauty in basics"
   };
 
 
