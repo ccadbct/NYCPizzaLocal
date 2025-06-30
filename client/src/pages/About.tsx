@@ -62,7 +62,6 @@ export default function About() {
   return (
     <div className="min-h-screen bg-cream">
       <Navigation />
-      
       <main className="pt-20">
         {/* Hero Section */}
         <section className="bg-pizza-green text-white py-16">
@@ -97,7 +96,7 @@ export default function About() {
                     
                     <p>
                       After moving to New York City, Andrea distinguished himself at two of the city's most celebrated 
-                      pizzerias: <strong>Scarr's Pizza</strong> on the Lower East Side and <strong>L'Industrie Pizzeria</strong> 
+                      pizzerias: <strong>Scarr's Pizza</strong> on the Lower East Side and <strong>L'Industrie Pizzeria </strong> 
                       in Williamsburg. At these iconic establishments, he perfected his understanding of New York's 
                       pizza culture while maintaining his commitment to authentic Italian methods.
                     </p>
@@ -242,7 +241,6 @@ export default function About() {
           </div>
         </section>
       </main>
-      
       <Footer />
     </div>
   );
