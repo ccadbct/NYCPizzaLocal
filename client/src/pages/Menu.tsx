@@ -140,38 +140,159 @@ export default function Menu() {
   useEffect(() => {
     document.title = "Menu - Andrea's Pizza | Authentic Italian Pizza in East Village NYC";
     
-    // Add meta description
+    // Enhanced meta description with Chef credentials and call-to-action
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Explore Andrea\'s Pizza authentic menu featuring Classic Cheese, Margherita, Pepperoni pizzas, Sicilian pies, Calzone, and Garlic Knots. Located in East Village NYC at 50 2nd Ave.');
+      metaDescription.setAttribute('content', 'Andrea\'s Pizza East Village menu: Classic Cheese ($4 slice), Margherita, Pepperoni, Sicilian pies, Calzone. Chef Andrea Kenuti (Scarr\'s alumni). 50 2nd Ave NYC. Call (646) 398-8386.');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'description';
-      meta.content = 'Explore Andrea\'s Pizza authentic menu featuring Classic Cheese, Margherita, Pepperoni pizzas, Sicilian pies, Calzone, and Garlic Knots. Located in East Village NYC at 50 2nd Ave.';
+      meta.content = 'Andrea\'s Pizza East Village menu: Classic Cheese ($4 slice), Margherita, Pepperoni, Sicilian pies, Calzone. Chef Andrea Kenuti (Scarr\'s alumni). 50 2nd Ave NYC. Call (646) 398-8386.';
       document.head.appendChild(meta);
     }
 
-    // Add structured data for menu
+    // Enhanced structured data with individual menu items and prices
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "Menu",
       "name": "Andrea's Pizza Menu",
-      "description": "Authentic Italian pizza menu featuring classic New York pizza, Sicilian pies, and favorites",
+      "description": "Authentic Italian pizza menu featuring classic New York pizza, Sicilian pies, and favorites by Chef Andrea Kenuti in East Village NYC",
       "hasMenuSection": [
         {
           "@type": "MenuSection",
           "name": "Classic New York Pizza",
-          "description": "Traditional New York style pizzas made with organic ingredients"
+          "description": "Traditional New York style pizzas made with organic ingredients",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Classic Cheese Pizza",
+              "description": "Organic tomatoes, mozzarella",
+              "offers": {
+                "@type": "Offer",
+                "price": "4.00",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Margherita Pizza",
+              "description": "Organic tomatoes, fresh mozzarella, basil",
+              "offers": {
+                "@type": "Offer",
+                "price": "4.75",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Pepperoni Pizza",
+              "description": "Organic tomatoes, mozzarella, beef pepperoni",
+              "offers": {
+                "@type": "Offer",
+                "price": "5.00",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Daily Special Pizza",
+              "description": "Ask for today's creation",
+              "offers": {
+                "@type": "Offer",
+                "price": "6.00",
+                "priceCurrency": "USD"
+              }
+            }
+          ]
         },
         {
           "@type": "MenuSection",
           "name": "Sicilian Square Pies", 
-          "description": "Thick crust square pizzas in traditional Sicilian style"
+          "description": "Thick crust square pizzas in traditional Sicilian style served in NYC's East Village",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Sicilian Classic",
+              "description": "Organic tomatoes, mozzarella, basil",
+              "offers": {
+                "@type": "Offer",
+                "price": "5.00",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Sicilian Pepperoni",
+              "description": "Organic tomatoes, mozzarella, beef pepperoni, basil",
+              "offers": {
+                "@type": "Offer",
+                "price": "6.00",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Grandma Pizza",
+              "description": "Organic tomatoes, fresh mozzarella, fresh garlic, basil",
+              "offers": {
+                "@type": "Offer",
+                "price": "6.00",
+                "priceCurrency": "USD"
+              }
+            }
+          ]
         },
         {
           "@type": "MenuSection",
           "name": "Favorites",
-          "description": "House specialties including calzone and garlic knots"
+          "description": "House specialties including calzone and garlic knots",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Calzone",
+              "description": "Mozzarella, ricotta",
+              "offers": {
+                "@type": "Offer",
+                "price": "18.00",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Garlic Knots",
+              "description": "(6 pieces)",
+              "offers": {
+                "@type": "Offer",
+                "price": "5.00",
+                "priceCurrency": "USD"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Drinks",
+          "description": "Refreshing beverages",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Coca-Cola",
+              "offers": {
+                "@type": "Offer",
+                "price": "2.50",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Seltzer",
+              "offers": {
+                "@type": "Offer",
+                "price": "2.00",
+                "priceCurrency": "USD"
+              }
+            }
+          ]
         }
       ]
     };
@@ -252,7 +373,7 @@ export default function Menu() {
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl font-bold mb-4">Our Menu</h1>
             <p className="text-xl max-w-2xl mx-auto">
-              Authentic Italian pizzas crafted with organic tomatoes and traditional techniques at Andrea's Pizza in East Village.
+              Authentic Italian pizzas crafted with organic tomatoes and traditional techniques by Chef Andrea Kenuti (Scarr's & L'Industrie veteran) at Andrea's Pizza in East Village, NYC.
             </p>
           </div>
         </section>
@@ -265,7 +386,7 @@ export default function Menu() {
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-pizza-green mb-4">Classic New York Pizza</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Whole pies & slices made with organic tomatoes and authentic Italian techniques.
+                Authentic East Village pizza made with organic tomatoes and traditional Italian techniques. Whole pies & slices available for dine-in and takeout.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -280,7 +401,7 @@ export default function Menu() {
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-pizza-green mb-4">Sicilian Square Pies</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Thick crust, square-cut pizzas in the traditional Sicilian style.
+                Traditional Sicilian pies served in the heart of NYC's East Village. Thick crust, square-cut pizzas with authentic Italian flavors.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -364,6 +485,30 @@ export default function Menu() {
               {drinks.map(item => (
                 <MenuItemCard key={item.id} item={item} />
               ))}
+            </div>
+          </section>
+
+          {/* Call-to-Action Section */}
+          <section className="bg-pizza-green text-white py-12 text-center">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold mb-4">Ready to Order?</h2>
+              <p className="text-xl mb-6">
+                Call (646) 398-8386 or visit us at 50 2nd Ave in East Village
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => window.open("tel:6463988386")}
+                  className="bg-white text-pizza-green px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                >
+                  Call Now: (646) 398-8386
+                </button>
+                <button
+                  onClick={() => window.open('https://maps.google.com/?q=50+2nd+Ave,+New+York,+NY+10003', '_blank')}
+                  className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-pizza-green transition-colors"
+                >
+                  Get Directions
+                </button>
+              </div>
             </div>
           </section>
         </div>
