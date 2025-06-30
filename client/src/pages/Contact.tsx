@@ -3,7 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Clock, Mail, Utensils, Car } from 'lucide-react';
+import { MapPin, Phone, Clock, Mail, Utensils, Car, ShoppingCart } from 'lucide-react';
 
 export default function Contact() {
   useEffect(() => {
@@ -267,7 +267,7 @@ export default function Contact() {
                 onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
                 className="bg-white text-pizza-red hover:bg-gray-100"
               >
-                <Phone className="w-4 h-4 mr-2" />
+                <ShoppingCart className="w-4 h-4 mr-2" />
                 Order Online
               </Button>
               <Button 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AndreasPizzaLogo } from "@/components/ui/logo";
 import { Link, useLocation } from "wouter";
@@ -62,7 +62,7 @@ export default function Navigation() {
                   : "bg-pizza-red text-white hover:bg-red-700"
                 }
               >
-                <Phone className="w-4 h-4 mr-2" />
+                <ShoppingCart className="w-4 h-4 mr-2" />
                 Order Online
               </Button>
             </div>
@@ -105,7 +105,7 @@ export default function Navigation() {
                 : "bg-pizza-red text-white hover:bg-red-700"
               }`}
             >
-              <Phone className="w-4 h-4 mr-2" />
+              <ShoppingCart className="w-4 h-4 mr-2" />
               Order Online
             </Button>
           </div>

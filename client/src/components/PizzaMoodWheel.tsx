@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, RotateCw, Sparkles } from "lucide-react";
+import { ShoppingCart, RotateCw, Sparkles } from "lucide-react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 interface MoodSegment {
@@ -710,7 +710,7 @@ export default function PizzaMoodWheel() {
                     onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
                     className="w-full bg-pizza-red text-white hover:bg-red-700 py-3 text-base sm:text-lg font-semibold"
                   >
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                    <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     <span className="hidden sm:inline">Order Online</span>
                     <span className="sm:hidden">Order Online</span>
                   </Button>
