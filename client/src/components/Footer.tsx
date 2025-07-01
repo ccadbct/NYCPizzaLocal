@@ -1,13 +1,8 @@
 import { Facebook, Instagram } from "lucide-react";
 import { FaYelp } from "react-icons/fa";
+import { Link } from "wouter";
 
 export default function Footer() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <footer className="bg-pizza-green text-white py-12">
@@ -35,36 +30,29 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="text-green-200 hover:text-white transition-colors"
-                >
+                <Link href="/" className="text-green-200 hover:text-white transition-colors block">
                   Home
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("menu")}
-                  className="text-green-200 hover:text-white transition-colors"
-                >
+                <Link href="/menu" className="text-green-200 hover:text-white transition-colors block">
                   Menu
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("about")}
-                  className="text-green-200 hover:text-white transition-colors"
-                >
+                <Link href="/about" className="text-green-200 hover:text-white transition-colors block">
                   About
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="text-green-200 hover:text-white transition-colors"
-                >
+                <Link href="/contact" className="text-green-200 hover:text-white transition-colors block">
                   Contact
-                </button>
+                </Link>
+              </li>
+              <li>
+                <Link href="/pizza-wheel" className="text-green-200 hover:text-white transition-colors block">
+                  Pizza Wheel
+                </Link>
               </li>
             </ul>
           </div>
