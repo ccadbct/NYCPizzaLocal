@@ -30,10 +30,10 @@ export default function Footer() {
               Authentic New York-style pizza in the heart of East Village since 1985.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-green-200 hover:text-white transition-colors">
+              <a href="https://www.facebook.com/Andreaspizzanyc/" target="_blank" rel="noopener noreferrer" className="text-green-200 hover:text-white transition-colors">
                 <Facebook className="w-6 h-6" />
               </a>
-              <a href="#" className="text-green-200 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/andreaspizzanyc" target="_blank" rel="noopener noreferrer" className="text-green-200 hover:text-white transition-colors">
                 <Instagram className="w-6 h-6" />
               </a>
               <a href="#" className="text-green-200 hover:text-white transition-colors">
