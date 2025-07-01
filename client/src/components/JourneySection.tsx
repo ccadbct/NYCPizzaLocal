@@ -16,7 +16,7 @@ export default function JourneySection() {
               <Flame className="w-16 h-16 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-pizza-green mb-4">Traditional Methods</h3>
-            <p className="text-gray-600 leading-relaxed">Our ovens reach temperatures of 900°F, creating the perfect char and authentic smoky flavor that defines true Neapolitan pizza. Each pie is crafted with techniques passed down through generations.</p>
+            <p className="text-gray-600 leading-relaxed">Our gas ovens reach up to 700°F, producing the perfect balance of crisp, char, and flavor. Each pie is crafted using time-honored techniques passed down through generations.</p>
           </div>
 
           <div className="flex flex-col items-center text-center">
