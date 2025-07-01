@@ -43,7 +43,7 @@ export default function ChefAndreaSection() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden lg:overflow-visible">
               <img
                 src={chefAndreaImage}
                 alt="Chef Andrea Kenuti sitting at a table in his restaurant"
