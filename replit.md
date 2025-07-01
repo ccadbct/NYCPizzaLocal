@@ -107,6 +107,8 @@ The application is designed for deployment on platforms like Replit, Vercel, or 
 ## Changelog
 
 Changelog:
+- July 1, 2025. Configured Vercel deployment with optimized build setup and deployment documentation
+- June 30, 2025. Fixed navigation issues and integrated Clover online ordering across all pages
 - June 29, 2025. Added multi-page architecture with dedicated pages for menu, about, contact, and pizza wheel functionality
 - June 28, 2025. Initial setup
 
