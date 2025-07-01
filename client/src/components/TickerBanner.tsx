@@ -1,7 +1,7 @@
 export default function TickerBanner() {
   const tickerItems = [
     "🍕 Fresh Daily Specials",
-    "🔥 Wood-Fired Authentic Taste",
+    "🔥 Authentic Taste",
     "📞 Call (646) 398-8386 for Orders",
     "🚚 Fast Delivery in East Village",
   ];
