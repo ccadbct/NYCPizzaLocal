@@ -43,15 +43,15 @@ export default function ChefAndreaSection() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <div className="relative">
+            <div className="relative overflow-hidden">
               <img
                 src={chefAndreaImage}
                 alt="Chef Andrea Kenuti sitting at a table in his restaurant"
                 className="rounded-2xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute -bottom-6 -right-6 bg-pizza-red text-white px-6 py-4 rounded-xl shadow-lg">
-                <p className="font-bold text-lg">10+ Years</p>
-                <p className="text-sm">NYC Experience</p>
+              <div className="absolute bottom-4 right-4 lg:-bottom-6 lg:-right-6 bg-pizza-red text-white px-4 py-3 lg:px-6 lg:py-4 rounded-xl shadow-lg">
+                <p className="font-bold text-base lg:text-lg">10+ Years</p>
+                <p className="text-xs lg:text-sm">NYC Experience</p>
               </div>
             </div>
           </div>

@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent horizontal scrolling on mobile */
+html, body {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure all containers respect viewport width */
+.max-w-7xl {
+  max-width: 100%;
+}
+
 /* Custom animations for the exciting result card */
 @keyframes celebrate {
   0% { transform: scale(0.8) rotate(-5deg); opacity: 0; }
