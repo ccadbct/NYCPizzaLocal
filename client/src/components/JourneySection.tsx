@@ -24,11 +24,7 @@ export default function JourneySection() {
               <Wheat className="w-16 h-16 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-pizza-green mb-4">Premium Ingredients</h3>
-            <p className="text-gray-600 leading-relaxed">
-              We source our ingredients directly from Italy - San Marzano tomatoes,
-              authentic Parmigiano-Reggiano, and extra virgin olive oil. Every ingredient
-              is selected for its exceptional quality and authentic flavor.
-            </p>
+            <p className="text-gray-600 leading-relaxed">We source our ingredients directly from Italy - organic tomatoes, authentic Parmigiano-Reggiano, and extra virgin olive oil. Every ingredient is selected for its exceptional quality and authentic flavor.</p>
           </div>
         </div>
       </div>
