@@ -4,6 +4,18 @@ import { Button } from "@/components/ui/button";
 import { AndreasPizzaLogo } from "@/components/ui/logo";
 import { Link, useLocation } from "wouter";
 
+// Custom Pizza Wheel Icon
+const PizzaWheelIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <circle cx="12" cy="12" r="1" fill="currentColor"/>
+    <line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" strokeWidth="1"/>
+    <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" strokeWidth="1"/>
+    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" strokeWidth="1"/>
+    <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" strokeWidth="1"/>
+  </svg>
+);
+
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location] = useLocation();
@@ -47,11 +59,12 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`${linkTextClass} transition-colors px-3 py-2 text-sm font-medium ${
+                  className={`${linkTextClass} transition-colors px-3 py-2 text-sm font-medium flex items-center gap-1 ${
                     location === link.href ? activeLinkClass : ""
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
+                  {link.label === "Pizza Wheel" && <PizzaWheelIcon className="w-4 h-4" />}
                   {link.label}
                 </Link>
               ))}
@@ -90,11 +103,12 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block px-3 py-2 ${linkTextClass} ${
+                className={`block px-3 py-2 ${linkTextClass} flex items-center gap-2 ${
                   location === link.href ? activeLinkClass : ""
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
+                {link.label === "Pizza Wheel" && <PizzaWheelIcon className="w-4 h-4" />}
                 {link.label}
               </Link>
             ))}

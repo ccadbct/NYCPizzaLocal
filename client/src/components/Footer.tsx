@@ -2,6 +2,18 @@ import { Facebook, Instagram } from "lucide-react";
 import { FaYelp } from "react-icons/fa";
 import { Link } from "wouter";
 
+// Custom Pizza Wheel Icon
+const PizzaWheelIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <circle cx="12" cy="12" r="1" fill="currentColor"/>
+    <line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" strokeWidth="1"/>
+    <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" strokeWidth="1"/>
+    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="currentColor" strokeWidth="1"/>
+    <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="currentColor" strokeWidth="1"/>
+  </svg>
+);
+
 export default function Footer() {
 
   return (
@@ -50,7 +62,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/pizza-wheel" className="text-green-200 hover:text-white transition-colors block">
+                <Link href="/pizza-wheel" className="text-green-200 hover:text-white transition-colors flex items-center gap-2">
+                  <PizzaWheelIcon className="w-4 h-4" />
                   Pizza Wheel
                 </Link>
               </li>
