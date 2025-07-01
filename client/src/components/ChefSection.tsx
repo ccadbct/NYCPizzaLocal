@@ -33,11 +33,7 @@ export default function ChefSection() {
           </div>
           <div>
             <h3 className="text-2xl font-bold text-pizza-green mb-6">MARGHERITA PIZZA</h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              Our signature Margherita represents the essence of authentic Italian pizza-making.
-              Fresh mozzarella, San Marzano tomatoes, and aromatic basil create a symphony of
-              flavors on our perfectly charred, wood-fired crust.
-            </p>
+            <p className="text-gray-600 mb-6 leading-relaxed">Our signature Margherita represents the essence of authentic Italian pizza-making. Fresh mozzarella, organic tomatoes, and aromatic basil create a symphony of flavors on our perfectly charred, wood-fired crust.</p>
             <Button
               onClick={scrollToMenu}
               className="bg-pizza-red text-white px-6 py-3 font-semibold hover:bg-red-700"
