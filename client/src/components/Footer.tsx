@@ -72,8 +72,12 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Hours</h4>
             <ul className="space-y-2 text-green-200">
-              <li>Monday - Sunday</li>
-              <li>11:00 AM - 11:00 PM</li>
+              <li>Monday - Thursday</li>
+              <li>12:00 PM - 12:00 AM</li>
+              <li>Friday - Saturday</li>
+              <li>12:00 PM - 2:00 AM</li>
+              <li>Sunday</li>
+              <li>12:00 PM - 11:00 PM</li>
               <li className="mt-4">
                 <span className="text-white font-medium">Phone:</span>
                 <br />

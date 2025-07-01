@@ -27,7 +27,11 @@ export default function ContactSection() {
                 50 2nd Ave<br />
                 New York, NY 10003
               </p>
-              <p className="text-sm text-gray-500 mb-6">Mon-Sun: 11:00 AM - 11:00 PM</p>
+              <p className="text-sm text-gray-500 mb-6">
+                Mon-Thu: 12:00 PM - 12:00 AM<br />
+                Fri-Sat: 12:00 PM - 2:00 AM<br />
+                Sun: 12:00 PM - 11:00 PM
+              </p>
               <Button
                 onClick={() => window.open("https://maps.google.com/?q=50+2nd+Ave,+New+York,+NY+10003", "_blank")}
                 className="bg-pizza-green text-white hover:bg-green-700 text-sm"
