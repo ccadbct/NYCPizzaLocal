@@ -1,0 +1,81 @@
+~/workspace$ git status
+On branch main
+nothing to commit, working tree clean
+~/workspace$ ls -la
+total 372
+drwxr-xr-x 1 runner runner    490 Jul  1 00:42 .
+drwxrwxrwx 1 runner runner     54 Jul  1 00:42 ..
+drwxr-xr-x 1 runner runner   2144 Jul  1 01:10 attached_assets
+drwxr-xr-x 1 runner runner     30 Jun 30 18:17 .cache
+drwxr-xr-x 1 runner runner     74 Jul  1 00:08 client
+-rw-r--r-- 1 runner runner    459 Jun 28 18:57 components.json
+drwxr-xr-x 1 runner runner     28 Jun 30 17:16 .config
+-rw-r--r-- 1 runner runner   1468 Jul  1 00:42 DEPLOYMENT.md
+-rw-r--r-- 1 runner runner    325 Jun 28 18:57 drizzle.config.ts
+drwxr-xr-x 1 runner runner    164 Jul  1 01:13 .git
+-rw-r--r-- 1 runner runner     67 Jun 28 18:57 .gitignore
+drwxr-xr-x 1 runner runner     10 Jun 28 18:57 .local
+drwxr-xr-x 1 runner runner   6940 Jun 28 19:00 node_modules
+-rw-r--r-- 1 runner runner   3535 Jun 28 18:57 package.json
+-rw-r--r-- 1 runner runner 320348 Jun 28 18:58 package-lock.json
+-rw-r--r-- 1 runner runner     80 Jun 28 18:57 postcss.config.js
+-rw-r--r-- 1 runner runner    676 Jun 28 19:00 .replit
+-rw-r--r-- 1 runner runner   5416 Jul  1 00:42 replit.md
+drwxr-xr-x 1 runner runner     68 Jun 28 19:03 server
+drwxr-xr-x 1 runner runner     18 Jun 28 18:58 shared
+-rw-r--r-- 1 runner runner   2834 Jun 29 14:09 tailwind.config.ts
+-rw-r--r-- 1 runner runner    657 Jun 28 18:57 tsconfig.json
+drwxr-xr-x 1 runner runner     20 Jun 28 19:00 .upm
+-rw-r--r-- 1 runner runner    184 Jul  1 00:42 vercel.json
+-rw-r--r-- 1 runner runner    971 Jun 28 18:57 vite.config.ts
+~/workspace$ git log --oneline
+69a0d50 (HEAD -> main) Add a visual asset to enhance the user experience on the platform
+77f50d2 Add visual example of the platform's functionality to documentation
+46c7752 Enable seamless deployment to Vercel with optimized settings and instructions
+38c6c7d Set up core React application with essential libraries and tooling
+489c3fc Ensure users always start at the top of the menu page when navigating
+0180466 Make the 'View Full Menu' button take users to the pizza menu page
+7a69c2b Update order buttons to reflect direct online ordering functionality
+be42b43 Direct users to the online ordering system when they want to order pizza
+65d7a7c Update pizza mood wheel to accurately reflect Andrea's Pizza's menu
+0ba6ef2 Show the correct and up-to-date business hours on the Contact page
+87c9020 Update the About page with accurate details about the head chef
+0d6e14a Improve menu page's local SEO and provide detailed menu information
+f949ce2 Improve local search visibility and provide more complete business data
+e2fa925 Improve the visibility of text and overall appearance of the about page
+ed8b04a Improve the appearance of the contact page button on the website
+df7d848 Show slice prices for Sicilian Classic, Sicilian Pepperoni, and Grandma pies
+97e17b9 Update menu page to reflect actual pizza offerings and accurate pricing
+48399a7 Create engaging, interactive hero section with enhanced visuals for the page
+3238294 Add custom color palette to improve overall visual design of the platform
+6573af1 Expand website with new pages to showcase menu, story and location
+4f2ec3d Enhance social media images to use the new vibrant style for sharing
+71f8346 Improve the pizza wheel with better text and refined descriptions
+4bb22f9 Enhance the pizza personality result card with animations and a vibrant design
+0f36034 Improve the appearance of the order button on smaller screens
+9e9ec2c Improve text spacing on the free slice offer for social media posts
+fdee732 Encourage social media engagement by updating share image text and alerts
+c9527b0 Ensure pizza image always appears on shareable results, even with errors
+9377150 Enhance shared images by displaying pictures of the recommended pizza
+f1844bc Update instructions on how to save images to phone for social sharing
+ace5f22 Enable users to save and share branded pizza personality images
+cb35997 Improve sharing on Instagram by directly opening the app and copying text
+435fed6 Improve sharing on Instagram and make it easier for users to post
+471c0ee Generate shareable images with pizza recommendations and restaurant branding
+ddceb1b Enable direct sharing to Instagram and improve button layout
+292f53f Offer users branded social media images to share their pizza mood
+020b55b Remove the old sharing button and update the design of the results page
+be26b41 Add social sharing features and unique codes for pizza mood wheel results
+f071fe6 Enhance pizza mood wheel, allowing users to directly choose their mood
+535f8b0 Improve the pizza mood wheel's spin for a smoother, more natural feel
+d9a5f9c Add fun new interactive mood selector to help users pick the perfect pizza
+df65855 Add interactive pizza mood wheel to assist users in choosing the perfect pizza
+b683ca5 Introduce Chef Andrea Kenuti with his background and dedication to pizza
+bcdc734 Update menu section to display popular pizza options and descriptions
+34b777d Update the website's main message to highlight founder's pizza expertise
+322bbb1 Update pizza menu with new flavors, sizes, and prices for customer choices
+8a97873 Make the embedded Google Maps on the contact page fill its container
+0a44437 Replace text-based website title with graphic logo and add sample menu data
+454565c Build out core website structure for an authentic New York pizzeria
+51ee5af Initial commit
+~/workspace$ 
