@@ -15,6 +15,10 @@ const PizzaWheelIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 );
 
 export default function Footer() {
+  const handleNavigation = (href: string) => {
+    // Scroll to top when navigating to a new page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <footer className="bg-pizza-green text-white py-12">
@@ -42,27 +46,27 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-green-200 hover:text-white transition-colors block">
+                <Link href="/" className="text-green-200 hover:text-white transition-colors block" onClick={() => handleNavigation('/')}>
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/menu" className="text-green-200 hover:text-white transition-colors block">
+                <Link href="/menu" className="text-green-200 hover:text-white transition-colors block" onClick={() => handleNavigation('/menu')}>
                   Menu
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-green-200 hover:text-white transition-colors block">
+                <Link href="/about" className="text-green-200 hover:text-white transition-colors block" onClick={() => handleNavigation('/about')}>
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-green-200 hover:text-white transition-colors block">
+                <Link href="/contact" className="text-green-200 hover:text-white transition-colors block" onClick={() => handleNavigation('/contact')}>
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/pizza-wheel" className="text-green-200 hover:text-white transition-colors flex items-center gap-2">
+                <Link href="/pizza-wheel" className="text-green-200 hover:text-white transition-colors flex items-center gap-2" onClick={() => handleNavigation('/pizza-wheel')}>
                   <PizzaWheelIcon className="w-4 h-4" />
                   Pizza Wheel
                 </Link>

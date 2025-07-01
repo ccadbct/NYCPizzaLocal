@@ -20,6 +20,12 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location] = useLocation();
 
+  const handleNavigation = () => {
+    // Scroll to top when navigating to a new page and close mobile menu
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMobileMenuOpen(false);
+  };
+
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "Menu", href: "/menu" },
@@ -62,7 +68,7 @@ export default function Navigation() {
                   className={`${linkTextClass} transition-colors px-3 py-2 text-sm font-medium flex items-center gap-1 ${
                     location === link.href ? activeLinkClass : ""
                   }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={handleNavigation}
                 >
                   {link.label === "Pizza Wheel" && <PizzaWheelIcon className="w-4 h-4" />}
                   {link.label}
@@ -106,7 +112,7 @@ export default function Navigation() {
                 className={`block px-3 py-2 ${linkTextClass} flex items-center gap-2 ${
                   location === link.href ? activeLinkClass : ""
                 }`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={handleNavigation}
               >
                 {link.label === "Pizza Wheel" && <PizzaWheelIcon className="w-4 h-4" />}
                 {link.label}
