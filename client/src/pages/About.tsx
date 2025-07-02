@@ -68,7 +68,7 @@ export default function About() {
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl font-bold mb-4">Our Story</h1>
             <p className="text-xl max-w-2xl mx-auto">
-              From the heart of Italy to the streets of East Village, discover the passion and tradition behind every pizza we create.
+              Born and raised in the heart of East Village, discover the passion and New York craftsmanship behind every pizza we create.
             </p>
           </div>
         </section>
@@ -95,9 +95,9 @@ export default function About() {
                     </p>
                     
                     <p>
-                      At these renowned establishments, Andrea mastered both traditional Italian techniques and New York's 
+                      At these renowned establishments, Andrea mastered both classic New York techniques and the city's 
                       distinctive pizza culture. His commitment to organic, carefully sourced ingredients and authentic 
-                      methods sets the foundation for Andrea's Pizza's classic vibe.
+                      methods sets the foundation for Andrea's Pizza's classic East Village vibe.
                     </p>
                     
                     <p>
@@ -118,7 +118,7 @@ export default function About() {
                       <ul className="space-y-2 text-gray-700">
                         <li>• 7 years perfecting craft at Scarr's Pizza (Orchard Street)</li>
                         <li>• Valuable experience at L'Industrie (West Village)</li>
-                        <li>• Expert in traditional Italian pizza techniques</li>
+                        <li>• Expert in classic New York pizza techniques</li>
                         <li>• First solo venture in East Village</li>
                         <li>• Committed to organic, carefully sourced ingredients</li>
                       </ul>
@@ -133,9 +133,9 @@ export default function About() {
                       </div>
                       <p className="text-gray-700">
                         "Great pizza comes from quality ingredients and proven techniques. We focus on 
-                        organic tomatoes, fresh mozzarella, and traditional methods learned from NYC's 
+                        organic tomatoes, fresh mozzarella, and authentic methods learned from NYC's 
                         best pizzerias. Every day we're here working to serve authentic pizza that 
-                        honors both Italian tradition and New York's pizza culture."
+                        honors New York's distinctive pizza culture and East Village's vibrant community."
                       </p>
                     </CardContent>
                   </Card>
@@ -160,7 +160,7 @@ export default function About() {
                     <h3 className="font-semibold text-pizza-green mb-2">East Village Roots</h3>
                     <p className="text-gray-600">
                       Located in the heart of East Village, we're proud to serve our vibrant community 
-                      with authentic Italian flavors.
+                      with authentic New York pizza flavors.
                     </p>
                   </CardContent>
                 </Card>
@@ -172,8 +172,8 @@ export default function About() {
                     </div>
                     <h3 className="font-semibold text-pizza-green mb-2">Authentic Techniques</h3>
                     <p className="text-gray-600">
-                      Using traditional Italian methods learned at NYC's most respected pizzerias, 
-                      we create authentic pizza with organic ingredients and proven techniques.
+                      Using authentic New York methods learned at NYC's most respected pizzerias, 
+                      we create classic pizza with organic ingredients and proven techniques.
                     </p>
                   </CardContent>
                 </Card>
@@ -196,7 +196,7 @@ export default function About() {
                 <p className="text-lg">
                   After seven years at Scarr's Pizza and valuable experience at L'Industrie, Chef Andrea knew 
                   exactly what he wanted to create for his first solo venture: an authentic neighborhood pizzeria 
-                  that honors both Italian tradition and New York's pizza culture. He found the perfect location 
+                  that honors New York's distinctive pizza culture and East Village's unique character. He found the perfect location 
                   at 50 2nd Avenue in East Village.
                 </p>
                 
@@ -210,8 +210,8 @@ export default function About() {
                 <p className="text-lg">
                   Today, Andrea's Pizza serves the East Village community with dedication and consistency. 
                   Whether you're a longtime neighborhood resident or discovering our slice for the first time, 
-                  we're here every day working to provide authentic pizza that respects both tradition and 
-                  our local community.
+                  we're here every day working to provide authentic New York pizza that respects both the city's pizza heritage and 
+                  our local East Village community.
                 </p>
               </div>
             </div>
@@ -221,9 +221,9 @@ export default function About() {
         {/* Call to Action */}
         <section className="bg-pizza-red text-white py-16">
           <div className="container mx-auto px-4 text-center">
-            <h3 className="text-3xl font-bold mb-4">Experience Authentic Italian Pizza</h3>
+            <h3 className="text-3xl font-bold mb-4">Experience Authentic New York Pizza</h3>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Visit us today and taste the difference that passion, tradition, and quality ingredients make.
+              Visit us today and taste the difference that passion, NYC craftsmanship, and quality ingredients make.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
