@@ -36,7 +36,7 @@ export default function Footer() {
               <a href="https://www.instagram.com/andreaspizzanyc" target="_blank" rel="noopener noreferrer" className="text-green-200 hover:text-white transition-colors">
                 <Instagram className="w-6 h-6" />
               </a>
-              <a href="#" className="text-green-200 hover:text-white transition-colors">
+              <a href="https://www.yelp.com/biz/andreas-pizza-new-york" target="_blank" rel="noopener noreferrer" className="text-green-200 hover:text-white transition-colors">
                 <FaYelp className="w-6 h-6" />
               </a>
             </div>
