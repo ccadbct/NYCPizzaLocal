@@ -369,15 +369,12 @@ export default function Menu() {
   return (
     <div className="min-h-screen bg-cream">
       <Navigation />
-      
       <main className="pt-20">
         {/* Hero Section */}
         <section className="bg-pizza-green text-white py-16">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl font-bold mb-4">Our Menu</h1>
-            <p className="text-xl max-w-2xl mx-auto">
-              Authentic Italian pizzas crafted with organic tomatoes and traditional techniques by Chef Andrea Kenuti (Scarr's & L'Industrie veteran) at Andrea's Pizza in East Village, NYC.
-            </p>
+            <p className="text-xl max-w-2xl mx-auto">Authentic NYC pizzas crafted with organic tomatoes and traditional techniques by Chef Andrea Kenuti (Scarr's & L'Industrie veteran) at Andrea's Pizza in East Village, NYC.</p>
           </div>
         </section>
 
@@ -516,7 +513,6 @@ export default function Menu() {
           </section>
         </div>
       </main>
-
       <Footer />
     </div>
   );
