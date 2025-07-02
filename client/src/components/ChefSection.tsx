@@ -17,9 +17,9 @@ export default function ChefSection() {
             WORDS FROM THE CHEF
           </h2>
           <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-            "Every pizza tells a story. Ours begins with time-honored recipes passed down through generations,
-            authentic ingredients, and genuine care. We use hand-tossed dough, house-made sauce, and artisanal cheeses
-            to create the perfect balance of flavors and textures."
+            "Every pizza tells a story. Ours begins with authentic New York-style craftsmanship,
+            premium ingredients, and genuine care. We use hand-tossed dough, house-made sauce, and artisanal cheeses
+            to create the perfect balance of flavors and textures that defines true NYC pizza."
           </p>
         </div>
 
