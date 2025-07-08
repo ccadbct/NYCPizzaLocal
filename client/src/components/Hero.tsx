@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
             <h1 className="text-4xl lg:text-6xl font-bold text-pizza-green mb-6 leading-tight">
-              AUTHENTIC NEW YORK<br />
+              NEW YORK<br />
               <span className="text-pizza-red">STYLE PIZZA</span><br />
               IN EAST VILLAGE
             </h1>
