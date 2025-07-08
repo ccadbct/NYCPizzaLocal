@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Menu } from "lucide-react";
+import heroImage from "@assets/andreas-pizzeria-nyc-east-village_1752014045875.webp";
 
 export default function Hero() {
   const scrollToMenu = () => {
@@ -40,8 +41,8 @@ export default function Hero() {
           </div>
           <div className="order-1 lg:order-2">
             <img
-              src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=800"
-              alt="Authentic New York style pizza with perfect cheese and sauce"
+              src={heroImage}
+              alt="Andrea's Pizza storefront at 50 2nd Ave in East Village, NYC showing the authentic pizzeria interior and exterior"
               className="rounded-2xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-300"
             />
           </div>
