@@ -256,7 +256,7 @@ export default function Contact() {
         {/* Call to Action */}
         <section className="bg-pizza-red text-white py-16">
           <div className="container mx-auto px-4 text-center">
-            <h3 className="text-3xl font-bold mb-4">Ready for Authentic New York Pizza?</h3>
+            <h3 className="text-3xl font-bold mb-4">Ready for Authentic New York-Style Pizza?</h3>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Stop by today or call ahead to place your order. We can't wait to serve you!
             </p>
