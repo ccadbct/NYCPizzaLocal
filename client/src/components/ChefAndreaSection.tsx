@@ -1,4 +1,4 @@
-import chefAndreaImage from "@assets/Chef Andrea Kenuti_1751146534812.webp";
+import chefAndreaImage from "@assets/chef-andrea-kenuti_1752014593609.webp";
 
 export default function ChefAndreaSection() {
   return (
@@ -46,7 +46,7 @@ export default function ChefAndreaSection() {
             <div className="relative overflow-hidden lg:overflow-visible">
               <img
                 src={chefAndreaImage}
-                alt="Chef Andrea Kenuti sitting at a table in his restaurant"
+                alt="Chef Andrea Kenuti in his pizzeria at Andrea's Pizza, East Village NYC, standing behind the counter with pizza display case"
                 className="rounded-2xl shadow-2xl w-full h-auto transform hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute bottom-4 right-4 lg:-bottom-6 lg:-right-6 bg-pizza-red text-white px-4 py-3 lg:px-6 lg:py-4 rounded-xl shadow-lg">
