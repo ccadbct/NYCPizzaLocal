@@ -98,9 +98,7 @@ export default function Contact() {
         <section className="bg-pizza-green text-white py-16">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl font-bold mb-4">Visit Us</h1>
-            <p className="text-xl max-w-2xl mx-auto">
-              Located in the heart of East Village, we're easy to find and ready to serve you authentic Italian pizza.
-            </p>
+            <p className="text-xl max-w-2xl mx-auto">Located in the heart of East Village, we're easy to find and ready to serve you authentic New York-Style pizza.</p>
           </div>
         </section>
 
