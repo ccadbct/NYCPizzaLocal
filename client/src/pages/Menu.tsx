@@ -385,9 +385,7 @@ export default function Menu() {
           <section className="mb-16">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-pizza-green mb-4">Classic New York Pizza</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Authentic East Village pizza made with organic tomatoes and traditional Italian techniques. Whole pies & slices available for dine-in and takeout.
-              </p>
+              <p className="text-gray-600 max-w-2xl mx-auto">Authentic East Village pizza made with organic tomatoes and traditional New York Style techniques. Whole pies & slices available for dine-in and takeout.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {classicPizzas.map(item => (
