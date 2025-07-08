@@ -10,9 +10,7 @@ export default function ContactSection() {
           <h2 className="text-3xl lg:text-4xl font-bold text-pizza-green mb-4">
             VISIT US IN EAST VILLAGE
           </h2>
-          <p className="text-lg text-gray-600">
-            Experience authentic New York pizza in the heart of the village
-          </p>
+          <p className="text-lg text-gray-600">Experience authentic New York pizza in the heart of the village.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
