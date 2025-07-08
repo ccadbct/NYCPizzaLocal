@@ -26,9 +26,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-4">Andrea's</h3>
-            <p className="text-green-200 mb-4">
-              Authentic New York-style pizza in the heart of East Village since 1985.
-            </p>
+            <p className="text-green-200 mb-4">New York-style pizza in the heart of East Village since 1985.</p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/Andreaspizzanyc/" target="_blank" rel="noopener noreferrer" className="text-green-200 hover:text-white transition-colors">
                 <Facebook className="w-6 h-6" />
