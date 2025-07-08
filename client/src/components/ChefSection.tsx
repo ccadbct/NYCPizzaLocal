@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import margheritaImage from "@assets/margherita-pizza_1752014412052.webp";
 
 export default function ChefSection() {
   const scrollToMenu = () => {
@@ -26,8 +27,8 @@ export default function ChefSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=800"
-              alt="Chef hands expertly stretching fresh pizza dough"
+              src={margheritaImage}
+              alt="Authentic Margherita pizza from Andrea's Pizza with fresh basil, mozzarella, and organic tomatoes"
               className="rounded-xl shadow-lg w-full h-auto"
             />
           </div>
