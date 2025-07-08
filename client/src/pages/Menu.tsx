@@ -400,7 +400,9 @@ export default function Menu() {
           <section className="mb-16">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-pizza-green mb-4">Sicilian Square Pies</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">Sicilian pies served in the heart of NYC's East Village. Thick crust, square-cut pizzas with authentic NYC flavors.</p>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Traditional Sicilian pies served in the heart of NYC's East Village. Thick crust, square-cut pizzas with authentic Italian flavors.
+              </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {sicilianPizzas.map(item => (
