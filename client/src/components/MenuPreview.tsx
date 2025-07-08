@@ -2,6 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 import { Link } from "wouter";
+import classicCheeseImage from "@assets/classic-cheese-pizza_1752015551029.webp";
+import margheritaMenuImage from "@assets/margherita-pizza_1752015551029.webp";
+import pepperoniImage from "@assets/pepperoni-pizza_1752015551028.webp";
+import sicilianClassicImage from "@assets/classic-sicilian-pizza_1752015551029.webp";
+import sicilianPepperoniImage from "@assets/sicilian-beef-pepperoni-pizza_1752015551027.webp";
 
 interface ClassicPizza {
   id: number;
@@ -32,8 +37,8 @@ export default function MenuPreview() {
       slicePrice: "$4.00",
       price12: "$21.00",
       price18: "$27.00",
-      image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      alt: "Classic cheese pizza with melted mozzarella"
+      image: classicCheeseImage,
+      alt: "Andrea's Pizza classic cheese slice with organic tomatoes and mozzarella"
     },
     {
       id: 2,
@@ -42,8 +47,8 @@ export default function MenuPreview() {
       slicePrice: "$4.75",
       price12: "$23.00",
       price18: "$31.00",
-      image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      alt: "Margherita pizza with fresh basil and mozzarella"
+      image: margheritaMenuImage,
+      alt: "Andrea's Pizza Margherita with fresh mozzarella, organic tomatoes, and basil"
     },
     {
       id: 3,
@@ -52,8 +57,8 @@ export default function MenuPreview() {
       slicePrice: "$5.00",
       price12: "$24.00",
       price18: "$33.00",
-      image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      alt: "Pepperoni pizza with premium pepperoni slices"
+      image: pepperoniImage,
+      alt: "Andrea's Pizza pepperoni with beef pepperoni and mozzarella"
     }
   ];
 
@@ -63,16 +68,16 @@ export default function MenuPreview() {
       name: "Sicilian Classic",
       description: "Organic tomatoes, mozzarella, basil",
       price: "$33.00",
-      image: "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      alt: "Sicilian classic pizza with thick crust"
+      image: sicilianClassicImage,
+      alt: "Andrea's Pizza Sicilian classic with thick crust, organic tomatoes, mozzarella, and basil"
     },
     {
       id: 2,
       name: "Sicilian Pepperoni",
       description: "Organic tomatoes, mozzarella, beef pepperoni, basil",
       price: "$38.00",
-      image: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      alt: "Sicilian pepperoni pizza with thick crust"
+      image: sicilianPepperoniImage,
+      alt: "Andrea's Pizza Sicilian pepperoni with thick crust, beef pepperoni, mozzarella, and basil"
     }
   ];
 
