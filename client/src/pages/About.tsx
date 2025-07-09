@@ -9,6 +9,12 @@ export default function About() {
   useEffect(() => {
     document.title = "About Chef Andrea Kenuti - Andrea's Pizza | Authentic Italian Pizza East Village NYC";
     
+    // Add canonical URL
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = 'https://andreaspizzanyc.com/about';
+    document.head.appendChild(canonical);
+    
     // Add meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -56,6 +62,8 @@ export default function About() {
       if (existingScript) {
         document.head.removeChild(existingScript);
       }
+      const canonicalLink = document.querySelector('link[rel="canonical"]');
+      if (canonicalLink) canonicalLink.remove();
     };
   }, []);
 

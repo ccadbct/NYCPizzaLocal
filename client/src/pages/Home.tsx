@@ -30,7 +30,7 @@ export default function Home() {
     // Add canonical URL
     const canonical = document.createElement('link');
     canonical.rel = 'canonical';
-    canonical.href = window.location.origin;
+    canonical.href = 'https://andreaspizzanyc.com/';
     document.head.appendChild(canonical);
 
     // Add geo location meta tags for local SEO

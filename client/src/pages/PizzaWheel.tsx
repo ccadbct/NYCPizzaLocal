@@ -10,6 +10,12 @@ export default function PizzaWheel() {
   useEffect(() => {
     document.title = "Pizza Mood Wheel - Find Your Perfect Pizza | Andrea's Pizza East Village NYC";
     
+    // Add canonical URL
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = 'https://andreaspizzanyc.com/pizza-wheel';
+    document.head.appendChild(canonical);
+    
     // Add meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -59,6 +65,8 @@ export default function PizzaWheel() {
       if (existingScript) {
         document.head.removeChild(existingScript);
       }
+      const canonicalLink = document.querySelector('link[rel="canonical"]');
+      if (canonicalLink) canonicalLink.remove();
     };
   }, []);
 

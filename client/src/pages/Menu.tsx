@@ -143,6 +143,12 @@ export default function Menu() {
     
     document.title = "Menu - Andrea's Pizza | Authentic Italian Pizza in East Village NYC";
     
+    // Add canonical URL
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = 'https://andreaspizzanyc.com/menu';
+    document.head.appendChild(canonical);
+    
     // Enhanced meta description with Chef credentials and call-to-action
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -310,6 +316,8 @@ export default function Menu() {
       if (existingScript) {
         document.head.removeChild(existingScript);
       }
+      const canonicalLink = document.querySelector('link[rel="canonical"]');
+      if (canonicalLink) canonicalLink.remove();
     };
   }, []);
 
