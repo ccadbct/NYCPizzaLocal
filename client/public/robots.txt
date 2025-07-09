@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://nyc-pizza-local.vercel.app/sitemap.xml
+Sitemap: https://andreaspizzanyc.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
