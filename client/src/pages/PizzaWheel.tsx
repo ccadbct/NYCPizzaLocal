@@ -15,6 +15,16 @@ export default function PizzaWheel() {
     canonical.rel = 'canonical';
     canonical.href = 'https://andreaspizzanyc.com/pizza-wheel';
     document.head.appendChild(canonical);
+
+    // Add tracking script
+    const trackingScript = document.createElement('script');
+    trackingScript.setAttribute('nowprocket', '');
+    trackingScript.setAttribute('nitro-exclude', '');
+    trackingScript.type = 'text/javascript';
+    trackingScript.id = 'sa-dynamic-optimization';
+    trackingScript.dataset.uuid = '4c6b3850-64cc-4ae1-b559-fa8e248bf578';
+    trackingScript.src = 'data:text/javascript;base64,dmFyIHNjcmlwdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdC5zZXRBdHRyaWJ1dGUoIm5vd3Byb2NrZXQiLCAiIik7c2NyaXB0LnNldEF0dHJpYnV0ZSgibml0cm8tZXhjbHVkZSIsICIiKTtzY3JpcHQuc3JjID0gImh0dHBzOi8vZGFzaGJvYXJkLmNvbnZlcnNpb25jb3B5YWdlbmN5LmNvbS9zY3JpcHRzL2R5bmFtaWNfb3B0aW1pemF0aW9uLmpzIjtzY3JpcHQuZGF0YXNldC51dWlkID0gIjRjNmIzODUwLTY0Y2MtNGFlMS1iNTU5LWZhOGUyNDhiZjU3OCI7c2NyaXB0LmlkID0gInNhLWR5bmFtaWMtb3B0aW1pemF0aW9uLWxvYWRlciI7ZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzY3JpcHQpOw==';
+    document.head.appendChild(trackingScript);
     
     // Add meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -67,6 +77,9 @@ export default function PizzaWheel() {
       }
       const canonicalLink = document.querySelector('link[rel="canonical"]');
       if (canonicalLink) canonicalLink.remove();
+      
+      const trackingScript = document.querySelector('#sa-dynamic-optimization');
+      if (trackingScript) trackingScript.remove();
     };
   }, []);
 
