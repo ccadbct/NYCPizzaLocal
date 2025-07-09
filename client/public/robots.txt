@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nyc-pizza-local.vercel.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow certain files
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
