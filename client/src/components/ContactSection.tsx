@@ -15,8 +15,8 @@ export default function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {/* Location Card */}
-          <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="p-8 text-center">
+          <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+            <CardContent className="p-8 text-center h-full flex flex-col">
               <div className="w-16 h-16 bg-pizza-red rounded-full flex items-center justify-center mx-auto mb-6">
                 <MapPin className="w-8 h-8 text-white" />
               </div>
@@ -25,14 +25,14 @@ export default function ContactSection() {
                 50 2nd Ave<br />
                 New York, NY 10003
               </p>
-              <p className="text-sm text-gray-500 mb-6">
+              <p className="text-sm text-gray-500 mb-6 flex-grow">
                 Mon-Thu: 12:00 PM - 12:00 AM<br />
                 Fri-Sat: 12:00 PM - 2:00 AM<br />
                 Sun: 12:00 PM - 11:00 PM
               </p>
               <Button
                 onClick={() => window.open("https://maps.google.com/?q=50+2nd+Ave,+New+York,+NY+10003", "_blank")}
-                className="bg-pizza-green text-white hover:bg-green-700 text-sm"
+                className="bg-pizza-green text-white hover:bg-green-700 text-sm mt-auto"
               >
                 <Navigation className="w-4 h-4 mr-2" />
                 Get Directions
@@ -41,8 +41,8 @@ export default function ContactSection() {
           </Card>
 
           {/* Phone Card */}
-          <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="p-8 text-center">
+          <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+            <CardContent className="p-8 text-center h-full flex flex-col">
               <div className="w-16 h-16 bg-pizza-green rounded-full flex items-center justify-center mx-auto mb-6">
                 <Phone className="w-8 h-8 text-white" />
               </div>
@@ -51,10 +51,10 @@ export default function ContactSection() {
                 Call us directly for<br />
                 quick pickup or delivery
               </p>
-              <p className="text-2xl font-bold text-pizza-red mb-6">(646) 398-8386</p>
+              <p className="text-2xl font-bold text-pizza-red mb-6 flex-grow">(646) 398-8386</p>
               <Button
                 onClick={() => window.open("tel:6463988386")}
-                className="bg-pizza-red text-white hover:bg-red-700 text-sm"
+                className="bg-pizza-red text-white hover:bg-red-700 text-sm mt-auto"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
@@ -63,8 +63,8 @@ export default function ContactSection() {
           </Card>
 
           {/* Online Ordering Card */}
-          <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <CardContent className="p-8 text-center">
+          <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+            <CardContent className="p-8 text-center h-full flex flex-col">
               <div className="w-16 h-16 bg-pizza-red rounded-full flex items-center justify-center mx-auto mb-6">
                 <Laptop className="w-8 h-8 text-white" />
               </div>
@@ -73,25 +73,27 @@ export default function ContactSection() {
                 Quick and easy<br />
                 online ordering
               </p>
-              <p className="text-sm text-gray-500 mb-6">Free delivery over $25</p>
+              <p className="text-sm text-gray-500 mb-6 flex-grow">Free delivery over $25</p>
               
-              {/* Primary Clover Button */}
-              <Button 
-                onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
-                className="bg-pizza-green text-white hover:bg-green-700 text-sm w-full mb-3"
-              >
-                <Laptop className="w-4 h-4 mr-2" />
-                Order via Clover
-              </Button>
-              
-              {/* Secondary Slice Button */}
-              <Button 
-                onClick={() => window.open('https://slicelife.com/restaurants/ny/new-york/10003/andrea-s-pizza-new-york/menu?utm_campaign=order_now_button&utm_medium=referral&utm_content=custom_button&utm_source=website', '_blank')}
-                variant="outline"
-                className="border border-gray-300 text-gray-600 hover:bg-gray-50 text-xs w-full"
-              >
-                Also available on Slice
-              </Button>
+              <div className="mt-auto space-y-3">
+                {/* Primary Clover Button */}
+                <Button 
+                  onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
+                  className="bg-pizza-green text-white hover:bg-green-700 text-sm w-full"
+                >
+                  <Laptop className="w-4 h-4 mr-2" />
+                  Order via Clover
+                </Button>
+                
+                {/* Secondary Slice Button */}
+                <Button 
+                  onClick={() => window.open('https://slicelife.com/restaurants/ny/new-york/10003/andrea-s-pizza-new-york/menu?utm_campaign=order_now_button&utm_medium=referral&utm_content=custom_button&utm_source=website', '_blank')}
+                  variant="outline"
+                  className="border border-gray-300 text-gray-600 hover:bg-gray-50 text-xs w-full"
+                >
+                  Also available on Slice
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>
