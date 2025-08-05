@@ -74,12 +74,23 @@ export default function ContactSection() {
                 online ordering
               </p>
               <p className="text-sm text-gray-500 mb-6">Free delivery over $25</p>
+              
+              {/* Primary Clover Button */}
               <Button 
                 onClick={() => window.open('https://www.clover.com/online-ordering/andreas-pizza-new-york', '_blank')}
-                className="bg-pizza-green text-white hover:bg-green-700 text-sm"
+                className="bg-pizza-green text-white hover:bg-green-700 text-sm w-full mb-3"
               >
                 <Laptop className="w-4 h-4 mr-2" />
-                Order Online
+                Order via Clover
+              </Button>
+              
+              {/* Secondary Slice Button */}
+              <Button 
+                onClick={() => window.open('https://slicelife.com/restaurants/ny/new-york/10003/andrea-s-pizza-new-york/menu?utm_campaign=order_now_button&utm_medium=referral&utm_content=custom_button&utm_source=website', '_blank')}
+                variant="outline"
+                className="border border-gray-300 text-gray-600 hover:bg-gray-50 text-xs w-full"
+              >
+                Also available on Slice
               </Button>
             </CardContent>
           </Card>
