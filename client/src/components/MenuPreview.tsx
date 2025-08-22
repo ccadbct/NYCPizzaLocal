@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 import { Link } from "wouter";
-import classicCheeseImage from "@assets/classic-cheese-pizza_1752015551029.webp";
+import classicCheeseImage from "@assets/Classic Cheese Pie_1755897753210.webp";
 import margheritaMenuImage from "@assets/margherita-pizza_1752015551029.webp";
 import pepperoniImage from "@assets/pepperoni-pizza_1752015551028.webp";
 import sicilianClassicImage from "@assets/classic-sicilian-pizza_1752015551029.webp";
